@@ -43,9 +43,7 @@ int main()
                     break;
             }
             swap(vec[j],vec[x]);
-
             cnt++;
-
         }
         pf("Case %d: %d\n",k,cnt);
     }
