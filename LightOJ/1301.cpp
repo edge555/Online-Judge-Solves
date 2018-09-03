@@ -20,12 +20,11 @@ bool cmp(struct info a,struct info b)
   }
   return false;
 }
-
-int main(void)
+int main()
 {
-   ll a,t,n,i;
+    ll a,t,n,i;
     cin>>a;
-   for(t=1;t<=a;t++)
+    for(t=1;t<=a;t++)
     {
      cin>>n;
      ll x,y,k=0;
@@ -47,23 +46,15 @@ int main(void)
      for(i=2;i<=k;i++)
     {
         if(ara[i].flag==2)
-        {
             f++;
-        }
         else if(ara[i].flag==1)
         {
           if(f == 0)
-          {
            cnt++;
-          }
           else if(f!=0)
-          {
             f--;
-          }
         }
      }
-
      printf("Case %lld: %lld\n",t,cnt);
    }
-   return 0;
 }
