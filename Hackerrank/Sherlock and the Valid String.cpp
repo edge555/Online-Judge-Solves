@@ -30,7 +30,6 @@ int main()
     for (it=mp.begin();it!=mp.end();it++)
     {
         int k=it->second;
-        //out<<it->first<<"  "<<it->second<<endl;
         vec.pb(k);
     }
     if(st.size()>2)
