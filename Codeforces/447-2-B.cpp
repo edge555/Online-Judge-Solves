@@ -22,8 +22,7 @@ int main()
     string a;
     cin>>a;
     int k,i,n,v=-1;
-    map<char,int>mp,mp2;
-    map<char,int>::iterator it;
+    map<char,int>mp;
     sf(k);
     char ch;
     for(ch='a';ch<='z';ch++)
