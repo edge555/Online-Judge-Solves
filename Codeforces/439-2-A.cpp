@@ -34,7 +34,6 @@ int main()
     bool chk=false;
     while(1)
     {
-        //db(d);
         if(d-vec[i]<0 || d<=0)
         {
             i--;
@@ -53,14 +52,11 @@ int main()
             break;
         i++;
     }
-    //db(i);
     if((i!=n-1)||(!chk))
     {
         pf("-1");
         return 0;
     }
-    //db(cnt);
-    //db(d);
     int r=d%10;
     if(r>=5)
         cnt++;
