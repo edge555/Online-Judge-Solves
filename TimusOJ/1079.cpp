@@ -29,7 +29,6 @@ int main()
             ara[i]=ara[i/2]+ara[(i/2)+1];
         mx=max(ara[i],mx);
         ans[i]=mx;
-        //cout<<ans[i]<<endl;
     }
     int k;
     while(1)
