@@ -35,7 +35,6 @@ int main()
         }
         sum/=12.0;
         pf("%d $",j);
-        //pf("%.2f\n",sum);
         int p=sum;
         string a=to_string(p);
         rep0(i,a.size())
