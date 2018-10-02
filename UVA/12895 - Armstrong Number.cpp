@@ -43,7 +43,6 @@ int main()
                 s=1;
                 rep0(j,p)
                     s*=vec[i];
-                //db(s);
                 sum+=s;
             }
             p++;
@@ -57,7 +56,6 @@ int main()
                 puts("Not Armstrong");
                 break;
             }
-            //db(sum);
         }
     }
 }
