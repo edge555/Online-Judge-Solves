@@ -36,7 +36,6 @@ int main()
     {
 
         d-=vec[i].fi;
-        //db(d);
         if(d<0)
             break;
         cnt++;
