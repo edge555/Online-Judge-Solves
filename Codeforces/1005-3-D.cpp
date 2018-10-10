@@ -40,7 +40,6 @@ int main()
     string a;
     cin>>a;
     int i,n,cnt=0,j;
-    calc(a);
     rep0(i,a.size())
     {
         string b;
