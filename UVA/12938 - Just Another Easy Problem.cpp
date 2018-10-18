@@ -36,7 +36,6 @@ int main()
         {
             string b=to_string(vec[i]);
             cnt=0;
-            //dbb(a,b);
             rep0(j,b.size())
             {
                 if(a[j]!=b[j])
