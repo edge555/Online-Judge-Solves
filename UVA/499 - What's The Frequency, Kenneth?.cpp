@@ -20,13 +20,13 @@ int main()
 	char s[10000];
 	int mx,i;
 	while(gets(s))
-    {
+    	{
 		freq.clear();
 		mx=-1;
 		for(i=0;s[i];i++)
-        {
+        	{
 			if (isalpha(s[i]))
-            {
+            		{
 				if (freq[s[i]]==0)
 					freq[s[i]]=1;
 				else
@@ -36,7 +36,7 @@ int main()
 			}
 		}
 		for (it=freq.begin();it!=freq.end();it++)
-        {
+        	{
 			if (it->second==mx)
 				printf("%c",it->first);
 		}
