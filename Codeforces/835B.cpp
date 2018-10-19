@@ -25,11 +25,11 @@ int main()
     cin>>k>>a;
     rep0(i,a.size())
         sum+=a[i]-'0';
-    sort(all(a));
     if(sum>=k)
-        puts("0");
+        pf("0");
     else
     {
+        sort(all(a));
         ll cnt=0,p=k-sum,i=0;;
         while(p>0)
         {
