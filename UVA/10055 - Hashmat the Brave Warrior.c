@@ -12,7 +12,6 @@ int main ()
         else if (a>b)
 
            printf ("%lld\n",a-b);
-
     }
     return 0;
 }
