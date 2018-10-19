@@ -23,7 +23,7 @@ int main()
 
         if (st.empty())
             cout<<"Yes"<<endl;
-        else if (!st.empty())
+        else
             cout<<"No"<<endl;
     }
 }
