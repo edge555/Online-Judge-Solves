@@ -1,50 +1,77 @@
-#include <stdio.h>
-int p[26], r[26];
-void init(int n) 
+#include <bits/stdc++.h>
+#include <string.h>
+#define FAST ios_base::sync_with_stdio(false); cin.tie(NULL)
+#define pf printf
+#define sf(num) scanf("%lld",&num)
+#define sff(num1,num2) scanf("%lld %lld",&num1,&num2)
+#define sfff(num1,num2,num3) scanf("%lld %lld %lld",&num1,&num2,&num3);
+#define rep(i,n) for(i=1;i<=n;i++)
+#define rep0(i,n) for(i=0;i<n;i++)
+#define reps(i,a,n) for(i=a;i<=n;i++)
+#define pb push_back
+#define mpp make_pair
+#define MOD 1000000007
+#define fi first
+#define se second
+#define mem(ara) memset(ara,0,sizeof(ara))
+#define all(x) (x).begin(),(x).end()
+#define pi pair<int,int>
+#define pii pair<pair<int,int>,pair<int,int> >
+#define db(x) cout<<#x<<" :: "<<x<<"\n";
+#define dbb(x,y) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<"\n";
+typedef long long int ll;
+using namespace std;
+int par[100000],i;
+int rnk[100000];
+void start(int n)
 {
-    while(n >= 0)
+    for(i=0;i<n;i++)
     {
-        p[n]=n;
-        r[n]=1;
-        n--;
+        rnk[i]=0;
+        par[i]=i;
     }
 }
-int find(int x) 
+int findpar(int x)
 {
-    return p[x]==x?x:(p[x]=find(p[x]));
+    return par[x]==x?x:(par[x]=findpar(par[x]));
 }
-int joint(int x,int y) 
+int dsu(int x,int y)
 {
-    x=find(x),y=find(y);
-    if(x!=y) 
+    int xx=findpar(x),yy=findpar(y);
+    if(xx==yy)
+        return 0;
+    int a=rnk[xx],b=rnk[yy];
+    if(a>b)
+        par[yy]=xx;
+    else
     {
-        if(r[x]>r[y])
-            r[x]+=r[y],p[y]=x;
-        else
-            r[y]+=r[x];
-             p[x]=y;
-        return 1;
+        par[xx]=yy;
+        if(a==b)
+            rnk[yy]++;
     }
-    return 0;
+    return 1;
 }
-int main() 
+int main()
 {
-    int t;
-    char s[10];
-    scanf("%d ",&t);
-    while(t--) 
+    int t,tc;
+    scanf("%d  ",&tc);
+    rep(t,tc)
     {
-        gets(s);
-        init(s[0]-'A');
-        int ans=s[0]-'A'+1;
-        while(gets(s)) 
+        string s;
+        getline(cin,s);
+        int lim=s[0]-'A'+1,cnt=0;
+        start(lim);
+        int ans=lim;
+        while(getline(cin,s) && s[0])
         {
             if(s[0]=='\0')
                 break;
-            ans-=joint(s[0]-'A',s[1]-'A');
+            int x=s[0]-'A',y=s[1]-'A';
+            ans-=dsu(x,y);
         }
-        printf("%d\n",ans);
-        if(t)
-            puts("");
+        if(t!=1)
+            cout<<endl;
+        cout<<ans<<endl;
     }
+    //cerr << "Time : " << (double)clock() / (double)CLOCKS_PER_SEC << "s\n";
 }
