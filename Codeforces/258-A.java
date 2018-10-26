@@ -51,5 +51,4 @@ public class Cf {
 		}
 		sc.close();
 	}
-
 }
