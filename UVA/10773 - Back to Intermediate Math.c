@@ -11,7 +11,7 @@ int main ()
         if (v>=u || u==0 || v==0)
             cout<<"Case "<<i<<": can't determine"<<endl;
         else if (v<u)
-            {
+        {
             r=(u*u)-(v*v);
             sd=d/(sqrt(r));
             st=d/(u*1.0);
@@ -19,7 +19,6 @@ int main ()
             if (t<0)
                 t=t*(-1.0);
             printf ("Case %0.0f: %0.3f\n",i,t);
-            }
+        }
     }
-    return 0;
 }
