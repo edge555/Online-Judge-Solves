@@ -13,5 +13,4 @@ int main()
         else
             printf("%.3lf %.3lf\n",(x1+x3)-x2,(y1+y3)-y2);
     }
-    return 0;
 }
