@@ -7,14 +7,12 @@ int main ()
     for (i=0;i<t;i++)
     {
         cin>>n;
-       {
+       
         for (j=0,sum=0;j<n;j++)
         {
             cin>>a>>b>>c;
             sum+=(a*c);
         }
         cout<<sum<<endl;
-       }
     }
-    return 0;
 }
