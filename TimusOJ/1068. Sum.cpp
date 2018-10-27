@@ -19,7 +19,8 @@ int main()
     int n,m,k;
     sf(m);
     n=m;
-    if(m==0){
+    if(m==0)
+    {
         pf("1\n");
         return 0;
     }
