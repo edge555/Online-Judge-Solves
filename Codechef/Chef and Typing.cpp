@@ -73,7 +73,6 @@ int main()
                     }
                 }
             }
-            //db(p);
             sum+=p;
             p/=2.0;
             mp[a]=p;
