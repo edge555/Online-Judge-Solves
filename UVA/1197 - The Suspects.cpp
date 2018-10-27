@@ -1,106 +1,86 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <sstream>
-#include <queue>
-#include <deque>
-#include <bitset>
-#include <iterator>
-#include <list>
-#include <stack>
-#include <map>
-#include <set>
-#include <functional>
-#include <numeric>
-#include <utility>
-#include <limits>
-#include <time.h>
-#include <math.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <assert.h>
+#include <bits/stdc++.h>
 
-#define MOD 1000000007
-#define mp make_pair
-#define pb push_back
-#define INF (int)1e9
-#define PI acos(-1.0)
-#define sc scanf
+#define FAST ios_base::sync_with_stdio(false); cin.tie(NULL)
 #define pf printf
-#define cspf(kk) printf("Case %d: %d\n",tc++,kk)
-#define in1(num) scanf("%d",&num)
-#define in2(num1,num2) scanf("%d %d",&num1,&num2)
-typedef long long ll;
+#define sf(num) scanf("%d",&num)
+#define sff(num1,num2) scanf("%d %d",&num1,&num2)
+#define sfff(num1,num2,num3) scanf("%d %d %d",&num1,&num2,&num3);
+#define rep(i,n) for(i=1;i<=n;i++)
+#define rep0(i,n) for(i=0;i<n;i++)
+#define reps(i,a,n) for(i=a;i<=n;i++)
+#define pb push_back
+#define mpp make_pair
+#define MOD 1000000007
+#define fi first
+#define se second
+#define mem(ara) memset(ara,0,sizeof(ara))
+#define all(x) (x).begin(),(x).end()
+#define autto for(auto it=mp.begin();it!=mp.end();it++)
+#define pi pair<int,int>
+#define pii pair<pair<int,int>,pair<int,int> >
+#define db(x) cout<<#x<<" :: "<<x<<"\n";
+#define dbb(x,y) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<"\n";
+typedef long long int ll;
 using namespace std;
-int par[100000];
-int rrank[100000];
-
-void intset(int n)
+int rnk[1000005],par[1000005],i;
+void makeset(int n)
 {
-    int i;
-    for(i=0;i<n;i++)
+    rep0(i,n)
     {
         par[i]=i;
-        rrank[i]=1;
+        rnk[i]=0;
     }
 }
-
 int findpar(int n)
 {
-    if(n!=par[n])
-        par[n]=findpar(par[n]);
-    return
-        par[n];
-}
-
-void chkset(int x,int y)
-{
-    int rx,ry;
-    rx=findpar(x);
-    ry=findpar(y);
-    if(rx == ry)
-        return;
-    if(rrank[rx]>rrank[ry])
-    {
-        rrank[rx]+=rrank[ry];
-        par[ry]=rx;
-    }
+    if(par[n]==n)
+        return n;
     else
-    {
-        rrank[ry]+=rrank[rx];
-        par[rx]=ry;
-    }
+        return par[n]=findpar(par[n]);
 }
-
-int main()
+void dsu(int a,int b)
 {
-    int p,q,qs,ele,per;
-    int z;
-    while(scanf("%d %d",&p, &q))
+    int x=findpar(a),y=findpar(b);
+    if(x!=y)
     {
-    int  cnt= 0;
-        if(!p && !q)
-            break;
-        intset(p);
-        for(int s=1;s<=q;s++)
+        if(rnk[x]>rnk[y])
+            par[y]=x;
+        else
         {
-            cin>>qs;
-            for(int x=1;x<=qs;x++)
-            {
-                cin>>per;
-                if(x==1)
-                    ele=per;
-                else
-                    chkset(ele,per);
+            par[x]=y;
+            if(rnk[x]==rnk[y])
+                rnk[y]++;
         }
     }
-    z=findpar(0);
-    for(int j=0;j<p;j++)
-        if(findpar(j)==z)
-           cnt++;
-    cout<<cnt<<endl;
+}
+int main()
+{
+    int n,m;
+    while(1)
+    {
+        sff(n,m);
+        if(n+m==0)
+            return 0;
+        makeset(n);
+        int k,p,l;
+        while(m--)
+        {
+            sff(k,l);
+            k--;
+            while(k--)
+            {
+                sf(p);
+                dsu(p,l);
+            }
+        }
+        int ans=findpar(0),cnt=1;
+        rep(i,n-1)
+        {
+            int pr=findpar(i);
+            if(pr==ans)
+                cnt++;
+        }
+        cout<<cnt<<endl;
     }
-    return 0;
+    //cerr << "Time : " << (double)clock() / (double)CLOCKS_PER_SEC << "s\n";
 }
