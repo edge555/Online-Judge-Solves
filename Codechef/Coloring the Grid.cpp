@@ -40,7 +40,6 @@ int main()
         sff(n,m);
         char ara[n+1][m+1];
         string a;
-        bool ans=true;
         int cnt=0,p=0;
         rep0(i,n)
         {
@@ -73,7 +72,6 @@ int main()
                     }
                     if(!obs)
                     {
-                        //dbb(i,j);
                         rep0(k,4)
                         {
                             x=i+dx[k];
@@ -84,7 +82,7 @@ int main()
                 }
             }
         }
-
+        
         rep0(i,n)
         {
             rep0(j,m)
