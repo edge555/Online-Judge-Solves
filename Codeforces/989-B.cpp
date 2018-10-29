@@ -53,33 +53,32 @@ int main()
             cnt++;
        if(cnt!=0)
        {
-         //cout<<"yes"<<endl;
-         for (i=0;i<k;i++)
-         {
-            if(a[i]=='.' && a[i+b]=='.')
+            for (i=0;i<k;i++)
             {
-                a[i]='1';
-                a[i+b]='0';
-            }
-            else if(a[i]!='.' && a[i+b]=='.')
-            {
-                if(a[i]=='1')
-                    a[i+b]='0';
-                else
-                    a[i+b]='1';
-            }
-            else if(a[i]=='.' && a[i+b]!='.')
-            {
-              if(a[i+b]=='1')
-                    a[i]='0';
-              else
+                (a[i]=='.' && a[i+b]=='.')
+                {
                     a[i]='1';
-            }
-         }
-           cout<<a<<endl;
-           return 0;
+                    a[i+b]='0';
+                }   
+                else if(a[i]!='.' && a[i+b]=='.')
+                {
+                    if(a[i]=='1')
+                        a[i+b]='0';
+                    else
+                        a[i+b]='1';
+                }   
+                else if(a[i]=='.' && a[i+b]!='.')
+                {
+                    if(a[i+b]=='1')
+                        a[i]='0';
+                    else
+                        a[i]='1';
+                }
+            }    
+            cout<<a<<endl;
+            return 0;
 
-         }
-       }
-       cout<<"no"<<endl;
+        }
+    }
+    cout<<"no"<<endl;
 }
