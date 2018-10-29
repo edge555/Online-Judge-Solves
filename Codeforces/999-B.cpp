@@ -36,6 +36,5 @@ int main()
             a[l]=b[l];
         dq.pop_front();
     }
-
     cout<<a<<endl;
 }
