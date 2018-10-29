@@ -32,7 +32,6 @@ int main()
                 ok=true;
                 break;
             }
-
         }
         if(ok==false)
             ara[i]=-1;
@@ -42,5 +41,4 @@ int main()
         if(ara[i]!=-1)
             cout<<ara[i]<<" ";
     }
-    return 0;
 }
