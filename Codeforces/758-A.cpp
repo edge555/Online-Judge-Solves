@@ -49,8 +49,7 @@ int main()
    }
    ll sum=0;
    for (i=0;i<n;i++)
-   {
        sum+=(maxx-ara[i]);
-   }
+   
    cout<<sum<<endl;
 }
