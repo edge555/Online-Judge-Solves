@@ -31,12 +31,6 @@ typedef long long int ll;
 using namespace std;
 int main()
 {
-    /*
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif
-    */
     int i,n,j,dot,hashh,k;
     string a[5];
     rep0(i,4)
