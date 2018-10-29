@@ -27,7 +27,6 @@ int main()
         pf("1 1 1");
         return 0;
     }
-
     if(k%3!=0)
         cout<<1<<" "<<2<<" "<<k<<endl;
     else
