@@ -46,7 +46,6 @@ int main()
        k-=5*i;
        i++;
        t++;
-
     }
     cout<<t<<endl;
 }
