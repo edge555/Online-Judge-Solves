@@ -25,7 +25,6 @@ using namespace std;
 
 int main()
 {
-
     int t,tc;
     scanf("%d\n",&tc);
     rep(t,tc)
@@ -51,15 +50,10 @@ int main()
         set<set<int>>st;
         set<set<int>>::iterator it;
         rep(i,n)
-        {
-                st.insert(s[i]);
-
-        }
+            st.insert(s[i]);
         cout<<st.size()<<endl;
         if(t!=tc)
             puts("");
-
-
     }
     //cerr << "Time : " << (double)clock() / (double)CLOCKS_PER_SEC << "s\n";
 }
