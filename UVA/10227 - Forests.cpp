@@ -48,7 +48,6 @@ int main()
             s[a].insert(b);
         }
         set<set<int>>st;
-        set<set<int>>::iterator it;
         rep(i,n)
             st.insert(s[i]);
         cout<<st.size()<<endl;
