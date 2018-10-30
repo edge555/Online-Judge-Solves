@@ -45,7 +45,6 @@ int main()
             ss>>a>>b;
             ss.clear();
             s[a].insert(b);
-            s[a].insert(b);
         }
         set<set<int>>st;
         rep(i,n)
