@@ -31,31 +31,31 @@ int main()
         cout<<l<<endl;
         return 0;
     }
-    else{
-    while(1){
-
-
-        if(dq.front()>n && dq.back()>n)
-            break;
-        if(dq.front()<=n && dq.back()<=n)
+    else
+    {
+        while(1)
         {
-            cnt++;
-            dq.pop_back();
+            if(dq.front()>n && dq.back()>n)
+                break;
+            if(dq.front()<=n && dq.back()<=n)
+            {
+                cnt++;
+                dq.pop_back();
+            }
+            else
+            {
+                if(dq.front()<=n)
+                {   
+                    cnt++;
+                    dq.pop_front();
+                }   
+                else
+                {
+                    cnt++;
+                    dq.pop_back();
+                }      
+            }
         }
-        else
-        {
-        if(dq.front()<=n)
-        {
-            cnt++;
-            dq.pop_front();
-        }
-        else
-        {
-            cnt++;
-            dq.pop_back();
-        }
-        }
-    }
-    cout<<cnt<<endl;
+        cout<<cnt<<endl;
     }
 }
