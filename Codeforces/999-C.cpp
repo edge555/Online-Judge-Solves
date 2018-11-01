@@ -30,7 +30,6 @@ int main()
           a[i]='.';
           k--;
         }
-
     }
     if(temp=='z')
         break;
