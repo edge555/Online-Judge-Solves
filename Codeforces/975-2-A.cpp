@@ -36,29 +36,27 @@ typedef long long ll;
 using namespace std;
 int main()
 {
-  ll n,i,j;
-  cin>>n;
-  string s;
-  set<string>ans;
-  set<char>ss;
-  set<char>::iterator it;
+    ll n,i,j;
+    cin>>n;
+    string s;
+    set<string>ans;
+    set<char>ss;
+    set<char>::iterator it;
 
-  for (j=1;j<=n;j++)
-  {
-    cin>>s;
-    ss.clear();
+    for (j=1;j<=n;j++)
+    {
+        cin>>s;
+        ss.clear();
 
-    for (i=0;i<s.size();i++)
-      ss.insert(s[i]);
+        for (i=0;i<s.size();i++)
+            ss.insert(s[i]);
 
+        string st="";
+        for(it=ss.begin();it!=ss.end();it++)
+            st=st+(*it);
 
-    string st="";
-    for(it=ss.begin();it!=ss.end();it++)
-      st=st+(*it);
+        ans.insert(st);
 
-    ans.insert(st);
-
-  }
-  cout<<ans.size()<<endl;
-  return 0;
+    }
+    cout<<ans.size()<<endl;
 }
