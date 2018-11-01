@@ -47,13 +47,13 @@ int main()
        if((chk(vec[i],vec[i+1]))==true)
         cnt++;
     }
-   // cout<<cnt<<endl;
-    if(cnt==vec.size()-1){
+  
+    if(cnt==vec.size()-1)
+    {
         cout<<"YES"<<endl;
         for(it=vec.begin();it!=vec.end();it++)
             cout<<*it<<endl;
     }
     else
         cout<<"NO"<<endl;
-
 }
