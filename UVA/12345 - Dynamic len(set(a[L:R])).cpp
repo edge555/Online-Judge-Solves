@@ -58,6 +58,5 @@ int main()
         else
             ara[a]=b;
     }
-
     //cerr << "Time : " << (double)clock() / (double)CLOCKS_PER_SEC << "s\n";
 }
