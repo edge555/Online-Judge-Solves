@@ -33,7 +33,6 @@ int main()
         ll k=__gcd(a,b),cnt=0;
         if(k%2==0)
         {
-
             reps(i,1,sqrt(k))
             {
                 if(k%i==0)
@@ -62,6 +61,5 @@ int main()
         }
         pf("%lld\n",cnt);
     }
-
     //cerr << "Time : " << (double)clock() / (double)CLOCKS_PER_SEC << "s\n";
 }
