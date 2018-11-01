@@ -22,7 +22,7 @@ int main()
         for(i=0;i<n;i++)
         {
             prod=1;
-            for(j=i;j<n && prod;j++)
+            for(j=i;j<n && prod!=0;j++)
             {
                 prod*=ara[j];
                 if(prod>mx)
