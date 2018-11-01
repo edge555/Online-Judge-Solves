@@ -18,7 +18,6 @@ int main()
 {
     int n,a,b,c,d,k,sum=0,sum2=0,r=1;
     sf(n);
-
     for (int i=0;i<n;i++)
     {
         cin>>a>>b>>c>>d;
