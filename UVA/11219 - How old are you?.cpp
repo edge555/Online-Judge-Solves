@@ -10,9 +10,9 @@ int main()
             scanf("%d/%d/%d",&d1,&m1,&y1);
             scanf("%d/%d/%d",&d,&m,&y);
             if(d1<d)
-                m+=1;
+                m++;
             if(m1<m)
-                y+=1;
+                y++;
             age=y1-y;
             if(age<0)
                 printf("Case #%d: Invalid birth date\n",i);
@@ -21,6 +21,4 @@ int main()
             else
                 printf("Case #%d: %d\n",i,age);
         }
-
-    return 0;
 }
