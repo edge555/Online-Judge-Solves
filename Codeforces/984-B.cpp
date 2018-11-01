@@ -35,70 +35,67 @@
 typedef long long ll;
 using namespace std;
 
-int dx[] = {0,0,1,-1,1,-1,1,-1};
-int dy[] = {1,-1,0,0,1,-1,-1,1};
+int dx[]={0,0,1,-1,1,-1,1,-1};
+int dy[]={1,-1,0,0,1,-1,-1,1};
 char ara[105][105];
 int n,m;
 int flag=1;
 bool valid(int x,int y)
 {
     if(x>=0 || y>=0 || x<n || y<m)
-    {
         return true;
-    }
     return false;
 }
 
-
 void chk(int i,int j,int v)
 {
-    int cnt = v;
-    for(int ii=0;ii<8;ii++){
+    int cnt=v;
+    for(int ii=0;ii<8;ii++)
+    {
         int x=i+dx[ii];
         int y=j+dy[ii];
-        if(valid(x,y)){
-            if(ara[x][y]=='*'){
+        if(valid(x,y))
+        {
+            if(ara[x][y]=='*')
                 cnt--;
-            }
         }
     }
     if(cnt!=0)
-    {
         flag = 0;
-    }
 }
 
 int main()
 {
     int i,j;
     map<char,int>mm;
-    mm['1'] = 1;
-    mm['2'] = 2;
-    mm['3'] = 3;
-    mm['4'] = 4;
-    mm['5'] = 5;
-    mm['6'] = 6;
-    mm['7'] = 7;
-    mm['8'] = 8;
+    mm['1']=1;
+    mm['2']=2;
+    mm['3']=3;
+    mm['4']=4;
+    mm['5']=5;
+    mm['6']=6;
+    mm['7']=7;
+    mm['8']=8;
     cin>>n>>m;
-    for(i=0;i<n;i++){
-        for(j=0;j<m;j++){
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
             cin>>ara[i][j];
-        }
+        
     }
-    for(i=0;i<n;i++){
-        for(j=0;j<m;j++){
-            if(mm[ara[i][j]]!=0){
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            if(mm[ara[i][j]]!=0)
                 chk(i,j,mm[ara[i][j]]);
-            }
-            else if(ara[i][j]=='.'){
+            
+            else if(ara[i][j]=='.')
                 chk(i,j,0);
-            }
         }
     }
     if(flag==0)
         cout<<"NO"<<endl;
-    else{
+    else
         cout<<"YES"<<endl;
-    }
 }
