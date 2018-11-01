@@ -38,7 +38,6 @@ int main()
 {
     string a="";
     cin>>a;
-
     int i,p=0,l=0;
     for (i=0;i<a.size();i++)
     {
