@@ -53,9 +53,9 @@ int main()
     cin>>n;
     while (n--)
     {
-    cin>>a;
-    it=find(vec.begin(),vec.end(),a);
-    vec.erase(it);
+        cin>>a;
+        it=find(vec.begin(),vec.end(),a);
+        vec.erase(it);
     }
     map<string,string>mp;
     map<string,string>::iterator it2;
@@ -69,7 +69,6 @@ int main()
     for (it=vec.begin();it!=vec.end();it++)
     {
         it2=mp.find(*it);
-
-            cout<<it2->second<<endl;
+        cout<<it2->second<<endl;
     }
 }
