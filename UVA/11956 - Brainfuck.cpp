@@ -48,15 +48,12 @@ int main()
                     k--;
                     if(k==-1)
                         k=99;
-
                 }
-
             }
         }
         pf("Case %d:",t++);
         rep0(i,100)
             printf(" %02X",ara[i]);
-
         puts("");
     }
 }
