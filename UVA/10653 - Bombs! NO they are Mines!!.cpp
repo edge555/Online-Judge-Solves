@@ -24,12 +24,11 @@ typedef long long int ll;
 using namespace std;
 int dx[]={-1,0,1,0};
 int dy[]={0,-1,0,1};
-int grid[1001][1001],cost[1001][1001];
-int n,m,i;
-bool vis[1001][1001];
+int cost[1001][1001],n,m,i;
+bool vis[1001][1001],grid[1001][1001];
 bool valid(int a,int b)
 {
-    if(a>=0 && a<n && b>=0 && b<m && grid[a][b]==0 && !vis[a][b])
+    if(a>=0 && a<n && b>=0 && b<m && !grid[a][b] && !vis[a][b])
         return true;
     return false;
 }
@@ -50,7 +49,7 @@ void bfs(int x,int y)
             if(valid(a,b))
             {
                 vis[a][b]=true;
-                grid[a][b]=1;
+                grid[a][b]=true;
                 cost[a][b]=cost[xx][yy]+1;
                 q.push(mpp(a,b));
             }
@@ -64,7 +63,7 @@ int main()
         sff(n,m);
         if(m+n==0)
             return 0;
-        mem(grid);
+        memb(grid);
         mem(cost);
         memb(vis);
         int r,b,q,k;
@@ -75,7 +74,7 @@ int main()
             while(b--)
             {
                 sf(k);
-                grid[r][k]=1;
+                grid[r][k]=true;
             }
         }
         int sx,sy,ex,ey;
