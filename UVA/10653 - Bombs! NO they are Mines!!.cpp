@@ -1,82 +1,88 @@
 #include <bits/stdc++.h>
 
+#define FAST ios_base::sync_with_stdio(false); cin.tie(NULL)
 #define pf printf
 #define sf(num) scanf("%d",&num)
 #define sff(num1,num2) scanf("%d %d",&num1,&num2)
-#define cspf(kk) printf("Case %d: %d\n",tc++,kk)
+#define sfff(num1,num2,num3) scanf("%d %d %d",&num1,&num2,&num3);
 #define rep(i,n) for(i=1;i<=n;i++)
 #define rep0(i,n) for(i=0;i<n;i++)
 #define reps(i,a,n) for(i=a;i<=n;i++)
-typedef long long ll;
+#define pb push_back
+#define mpp make_pair
+#define MOD 1000000007
+#define fi first
+#define se second
+#define mem(ara) memset(ara,0,sizeof(ara))
+#define memb(ara) memset(ara,false,sizeof(ara))
+#define all(x) (x).begin(),(x).end()
+#define pi pair<int,int>
+#define pii pair<pair<int,int>,pair<int,int> >
+#define db(x) cout<<#x<<" :: "<<x<<"\n";
+#define dbb(x,y) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<"\n";
+typedef long long int ll;
 using namespace std;
-
-void bfs(int a,int b);
-queue<pair<int,int>>q;
-
-int adj[1001][1001];
-int cost[1001][1001];
-bool vis[1001][1001];
 int dx[]={-1,0,1,0};
 int dy[]={0,-1,0,1};
-int row,col;
-int sx,sy,fx,fy;
-
-int main()
+int grid[1001][1001],cost[1001][1001];
+int n,m,i;
+bool vis[1001][1001];
+bool valid(int a,int b)
 {
-
-    while(scanf ("%d %d",&row,&col)==2)
-    {
-        if (row==0 && col==0)
-            break;
-        memset(adj,0,sizeof(adj));
-        memset(cost,0,sizeof(cost));
-        memset(vis,false,sizeof(vis));
-        int bomb;
-        sf(bomb);
-        for (int i=0;i<bomb;i++)
-        {
-            int r,amnt,c;
-            sff(r,amnt);
-            while(amnt--)
-            {
-                sf(c);
-                adj[r][c]=1;
-            }
-        }
-        sff(sx,sy);
-        sff(fx,fy);
-        bfs(sx,sy);
-
-        cout<<cost[fx][fy]<<endl;
-
-    }
+    if(a>=0 && a<n && b>=0 && b<m && grid[a][b]==0 && !vis[a][b])
+        return true;
+    return false;
 }
-void bfs(int a,int b)
+void bfs(int x,int y)
 {
-    vis[a][b]=true;
-    cost[a][b]=0;
-    int i;
-    q.push(make_pair(a,b));
+    vis[x][y]=true;
+    cost[x][y]=0;
+    queue<pi>q;
+    q.push(mpp(x,y));
     while(!q.empty())
     {
-        int xx,yy;
-        pair<int,int>top=q.front();
+        pi top=q.front();
         q.pop();
-        for (i=0;i<4;i++)
+        int xx=top.fi,yy=top.se;
+        rep0(i,4)
         {
-            xx=top.first+dx[i];
-            yy=top.second+dy[i];
-            if((xx>=0 && xx<row) && (yy>=0 && yy<col) && adj[xx][yy]==0)
+            int a=xx+dx[i],b=yy+dy[i];
+            if(valid(a,b))
             {
-                if(vis[xx][yy]==false)
-                {
-                    vis[xx][yy]=true;
-                    adj[xx][yy]=1;
-                    cost[xx][yy]=cost[top.first][top.second]+1;
-                    q.push(make_pair(xx,yy));
-                }
+                vis[a][b]=true;
+                grid[a][b]=1;
+                cost[a][b]=cost[xx][yy]+1;
+                q.push(mpp(a,b));
             }
         }
     }
 }
-
+int main()
+{
+    while(1)
+    {
+        sff(n,m);
+        if(m+n==0)
+            return 0;
+        mem(grid);
+        mem(cost);
+        memb(vis);
+        int r,b,q,k;
+        sf(q);
+        while(q--)
+        {
+            sff(r,b);
+            while(b--)
+            {
+                sf(k);
+                grid[r][k]=1;
+            }
+        }
+        int sx,sy,ex,ey;
+        sff(sx,sy);
+        sff(ex,ey);
+        bfs(sx,sy);
+        cout<<cost[ex][ey]<<endl;
+    }
+    //cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
+}
