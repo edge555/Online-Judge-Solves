@@ -90,7 +90,7 @@ int main()
                 if(dice2[i]==dice[0])
                     q.push(i);
             }
-            int ans=false;
+            bool ans=false;
             while(!q.empty())
             {
                 int k=q.front(),cnt;
