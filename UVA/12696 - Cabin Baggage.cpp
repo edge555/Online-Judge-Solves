@@ -15,9 +15,7 @@ int main ()
            k++;
        }
        else
-        cout<<"0"<<endl;
+           cout<<"0"<<endl;
     }
     cout<<k<<endl;
-
-    return 0;
 }
