@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
-#include <string.h>
 using namespace std;
-int main ()
+int main()
 {
     char ara[100000];
     char eng[]="HELLO",fra[]="BONJOUR",spa[]="HOLA",rus[]="ZDRAVSTVUJTE",ita[]="CIAO",ger[]="HALLO";
@@ -25,7 +24,5 @@ int main ()
             printf ("Case %d: GERMAN\n",i);
         else
             printf ("Case %d: UNKNOWN\n",i);
-
     }
-    return 0;
 }
