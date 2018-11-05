@@ -1,63 +1,82 @@
 #include <bits/stdc++.h>
 
-#define pii pair<int,int>
+#define FAST ios_base::sync_with_stdio(false); cin.tie(NULL)
 #define pf printf
 #define sf(num) scanf("%d",&num)
 #define sff(num1,num2) scanf("%d %d",&num1,&num2)
-#define cspf(kk) printf("Case %d: %d\n",tc++,kk)
+#define sfff(num1,num2,num3) scanf("%d %d %d",&num1,&num2,&num3);
 #define rep(i,n) for(i=1;i<=n;i++)
 #define rep0(i,n) for(i=0;i<n;i++)
 #define reps(i,a,n) for(i=a;i<=n;i++)
-typedef long long ll;
+#define pb push_back
+#define mpp make_pair
+#define MOD 1000000007
+#define fi first
+#define se second
+#define mem(ara) memset(ara,0,sizeof(ara))
+#define memb(ara) memset(ara,false,sizeof(ara))
+#define autto(vec) for(auto it=vec.begin();it!=vec.end();it++)
+#define all(x) (x).begin(),(x).end()
+#define pi pair<int,int>
+#define db(x) cout<<#x<<" :: "<<x<<"\n";
+#define dbb(x,y) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<"\n";
+typedef long long int ll;
 using namespace std;
+int dx[]={1,-1,1,-1,2,2,-2,-2};
+int dy[]={2,2,-2,-2,1,-1,1,-1};
+int i,p,q,pp,qq;
+string a,b;
+int grid[10][10];
 bool vis[10][10];
-int mv[10][10];
-int dx[]={1, -1, 1, -1, 2, 2, -2, -2};
-int dy[]={2, 2, -2, -2, 1, -1, 1, -1};
-string s1,s2;
-
-void bfs(int a,int b,int c,int d)
+bool valid(int x,int y)
 {
-    queue<pair<int,int>>q;
-    memset(vis,false,sizeof(vis));
-    q.push(make_pair(a,b));
-    vis[a][b]=true;
-    mv[a][b]=0;
-    while (!q.empty())
+    if(x>=0 && x<8 && y>=0 && y<8 && !vis[x][y])
+        return true;
+    return false;
+}
+void bfs(int aa,int bb)
+{
+    queue<pi>qqq;
+    qqq.push(mpp(aa,bb));
+    vis[aa][bb]=true;
+    grid[aa][bb]=0;
+    while(!qqq.empty())
     {
-        int xx,yy,i;
-        pair<int,int>top=q.front();
-        q.pop();
-        if(top.first==c && top.second==d){
-            cout<<"To get from "<<s1<<" to "<<s2<<" takes "<<mv[top.first][top.second]<<" knight moves."<<endl;
-            return;
-        }
-        for (i=0;i<8;i++)
+        pi top=qqq.front();
+        qqq.pop();
+        int x=top.fi,y=top.se,xx,yy;
+        rep0(i,8)
         {
-            xx=top.first+dx[i];
-            yy=top.second+dy[i];
-
-            if((xx>0 && xx<=8) && (yy>0 && yy<=8) && vis[xx][yy]==false)
+            xx=x+dx[i];yy=y+dy[i];
+            if(valid(xx,yy))
             {
                 vis[xx][yy]=true;
-                mv[xx][yy]=mv[top.first][top.second]+1;
-                q.push(make_pair(xx,yy));
+                grid[xx][yy]=grid[x][y]+1;
+                if(xx==pp && yy==qq)
+                {
+                    cout<<"To get from "<<a<<" to "<<b<<" takes "<<grid[pp][qq]<<" knight moves.\n";
+                    return;
+                }
+                qqq.push(mpp(xx,yy));
             }
         }
-
     }
-
 }
-
 int main()
 {
-    while(cin>>s1>>s2)
+
+    while(cin>>a>>b)
     {
-    int a,b,c,d;
-    a=s1[0]-96;
-    b=s1[1]-'0';
-    c=s2[0]-96;
-    d=s2[1]-'0';
-    bfs(a,b,c,d);
+        if(a==b)
+        {
+            cout<<"To get from "<<a<<" to "<<b<<" takes 0 knight moves.\n";
+            continue;
+        }
+        p=a[0]-'a';q=a[1]-'0'-1;
+        pp=b[0]-'a';qq=b[1]-'0'-1;
+        mem(grid);
+        memb(vis);
+        bfs(p,q);
     }
+    //cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 }
