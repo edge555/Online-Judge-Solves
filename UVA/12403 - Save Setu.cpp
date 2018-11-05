@@ -24,5 +24,4 @@ int main ()
         else if (ara[0]=='r')
             cout<<sum<<endl;
     }
-    return 0;
 }
