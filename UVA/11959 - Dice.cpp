@@ -84,7 +84,6 @@ int main()
                 dice2[i]=b[i];
             }
             queue<int>q;
-            int topcount=0;
             rep0(i,6)
             {
                 if(dice2[i]==dice[0])
@@ -126,10 +125,7 @@ int main()
                             cnt++;
                     }
                     if(cnt==6)
-                    {
                         ans=true;
-                        continue;
-                    }
                 }
             }
             if(ans)
