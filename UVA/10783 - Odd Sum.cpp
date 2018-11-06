@@ -16,6 +16,5 @@ int main ()
         cout<<"Case "<<i<<": "<<sum<<endl;
         sum=0;
     }
-
     return 0;
 }
