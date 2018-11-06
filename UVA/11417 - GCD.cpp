@@ -14,5 +14,4 @@ int main()
                 sum+=__gcd(i,j);
         cout<<sum<<endl;
     }
-
 }
