@@ -15,7 +15,7 @@ using namespace std;
 const int maxn=1e5+9;
 int main()
 {
-	string s;
+    string s;
     cin>>s;
     int n=s.size();
     int k=(s[n-2]-'0')*10+s[n-1]-'0';
