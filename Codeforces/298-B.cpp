@@ -16,7 +16,8 @@ int main()
 {
     int n,sx,sy,ex,ey,i;
     sf(n);
-    sff(sx,sy);sff(ex,ey);
+    sff(sx,sy);
+    sff(ex,ey);
     string a;
     cin>>a;
     for (i=0;i<a.size();i++)
