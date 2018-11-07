@@ -34,7 +34,7 @@ int main()
     {
         if(sum/(n+i)>=k-0.5)
             break;
-		sum+=k;
+	sum+=k;
     }
     cout<<i;
 }
