@@ -28,7 +28,6 @@ int main()
     int n,i,k;
     sf(n);
     queue<int>q;
-
     rep0(i,n)
     {
         sf(k);
