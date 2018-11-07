@@ -40,9 +40,8 @@ int main()
     cin>>n;
     int ara[n+1],i;
     for (i=0;i<n;i++)
-    {
        cin>>ara[i];
-    }
+    
     int l=ara[0],h=ara[0],cnt=0;
     for (i=1;i<n;i++)
     {
