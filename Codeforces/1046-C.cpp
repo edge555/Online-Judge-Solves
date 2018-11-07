@@ -24,7 +24,6 @@ int main()
     sff(n,k);
     ll p;
     queue<ll>q;
-    //stack<ll>s;
     int pr;
     rep0(i,n)
     {
@@ -76,5 +75,5 @@ int main()
         }
         q.pop();
     }
-    cout<<cnt+1;
+    cout<<++cnt;
 }
