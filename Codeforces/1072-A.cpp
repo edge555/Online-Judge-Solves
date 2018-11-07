@@ -24,12 +24,6 @@ typedef long long int ll;
 using namespace std;
 int main()
 {
-    /*
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif
-    */
     int w,h,k,i=1,sum=0;
     sfff(w,h,k);
     while(k--)
@@ -41,7 +35,5 @@ int main()
         i++;
     }
     cout<<sum;
-
-
     //cerr << "Time : " << (double)clock() / (double)CLOCKS_PER_SEC << "s\n";
 }
