@@ -25,8 +25,7 @@ using namespace std;
 
 int main()
 {
-    int n,i=1,m;
-    vector<int>vec;
+    int n,i,m;
     while(1)
     {
         sf(n);
