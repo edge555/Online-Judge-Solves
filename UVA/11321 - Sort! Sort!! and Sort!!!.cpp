@@ -32,9 +32,9 @@ bool comp(int a,int b)
         else if(abs(a)%2==0 && abs(b)%2==0)
             return b>a;
         else if(abs(a)%2==1)
-            return a>b;
+            return true;
         else
-            return a<b;
+            return false;
     }
     else
         return a%m<b%m;
