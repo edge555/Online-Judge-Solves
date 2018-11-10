@@ -54,7 +54,6 @@ int main()
             vec.pb(k);
         }
         sort(all(vec),comp);
-
         rep0(i,vec.size())
             cout<<vec[i]<<endl;
     }
