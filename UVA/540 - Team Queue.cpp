@@ -26,12 +26,6 @@ int ara[N];
 bool exist[N];
 int main()
 {
-    /*
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif
-    */
     int m,n,tc=1;
     while(1)
     {
@@ -89,6 +83,5 @@ int main()
             q.pop();
         vec.clear();
     }
-
     //cerr << "Time : " << (double)clock() / (double)CLOCKS_PER_SEC << "s\n";
 }
