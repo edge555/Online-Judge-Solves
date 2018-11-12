@@ -5,9 +5,7 @@ int main ()
     int n,ara[1000],i;
     cin>>n;
     for (i=0;i<n;i++)
-    {
         cin>>ara[i];
-    }
     sort(ara,ara+n);
     for (i=0;i<n;i++)
     {
