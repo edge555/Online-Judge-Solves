@@ -42,6 +42,6 @@ int main()
 	n=min(n,m);
 	if(n%2==0)
 		cout<<"Malvika"<<endl;
-	 else
+	else
 		cout<<"Akshat"<<endl;
 }
