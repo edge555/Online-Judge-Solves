@@ -58,7 +58,6 @@ int main()
     if (sum>=n)
         break;
     sum+=ara[i];
-
     }
     cout<<i<<endl;
 }
