@@ -1,5 +1,3 @@
-
-package hackerrank;
 import java.util.*;
 public class Solution {
 
@@ -11,5 +9,4 @@ public class Solution {
             System.out.println(n+" x "+i+" = "+n*i);
         }
     }
-    
 }
