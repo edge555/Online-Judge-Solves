@@ -13,11 +13,9 @@ public class Cf {
 			y=n-i;
 			System.out.println(x+" "+y);
 			if(x>=a && y<=b) {
-				//System.out.println(i);
 				cnt++;
 			}
 		}
 		System.out.print(cnt);
 	}
-
 }
