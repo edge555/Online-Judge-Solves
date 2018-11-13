@@ -1,4 +1,3 @@
-package practise;
 import java.util.*;
 public class Practise {
 
@@ -14,7 +13,6 @@ public class Practise {
            {
                chk=true;
                break;
-               
            }
        }
        if(chk==true)
@@ -31,5 +29,4 @@ public class Practise {
                System.out.print(a.charAt(j));
        }
     }
-    
 }
