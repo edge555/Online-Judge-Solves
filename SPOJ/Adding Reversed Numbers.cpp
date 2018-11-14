@@ -25,7 +25,7 @@ int rev(int x)
 int main()
 {
 	int n;
-    cin>>n;
+   	cin>>n;
 	while (n--)
 	{
 		int a,b;
