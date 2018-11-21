@@ -46,7 +46,7 @@ int main()
             cnt++;
     }
     if (cnt)
-        cout<<"Happy Alex"<<endl;
+        cout<<"Happy Alex";
     else
-        cout<<"Poor Alex"<<endl;
+        cout<<"Poor Alex";
 }
