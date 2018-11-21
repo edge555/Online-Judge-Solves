@@ -11,8 +11,8 @@ int main()
     for (i=0,j=b-1;ara[i];i++,j--)
         if (ara[i]!=ara2[j])
         {
-            cout<<"NO"<<endl;
+            cout<<"NO";
             return 0;
         }
-    cout<<"YES"<<endl;
+    cout<<"YES";
 }
