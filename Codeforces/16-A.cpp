@@ -16,14 +16,12 @@ int main()
         set<char>st;
         int i;
         for (i=0;i<ara.size();i++)
-        {
             st.insert(ara[i]);
-        }
         if (st.size()!=1)
             l=1;
     }
     if (l==1)
-        cout<<"NO"<<endl;
+        cout<<"NO";
     else
-        cout<<"YES"<<endl;
+        cout<<"YES";
 }
