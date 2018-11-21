@@ -36,7 +36,8 @@ int main()
                 chk=true;
                 x=i;
                 y=j;
-                while(a[i][j]=='B'){
+                while(a[i][j]=='B')
+                {
                     k++;
                     j++;
                 }
