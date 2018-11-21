@@ -24,10 +24,9 @@ int main()
    int len=max(n,m);
    for(i=0;i<len;i++)
         cout<<1;
-
    cout<<endl;
+   
    for(i=0;i<len-1;i++)
         cout<<8;
-
    cout<<9<<endl;
 }
