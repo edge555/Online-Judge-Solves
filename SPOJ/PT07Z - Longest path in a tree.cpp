@@ -46,7 +46,6 @@ void bfs(int st)
             }
         }
     }
-
 }
 int main()
 {
