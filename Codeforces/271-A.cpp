@@ -10,7 +10,7 @@ int main()
         for (k=0;k<10;k++)
             freq[k]=0;
         m=i;
-        while (m!=0)
+        while(m!=0)
         {
             freq[m%10]++;
             m/=10;
@@ -23,8 +23,8 @@ int main()
         }
         if (cnt==4)
         {
-        cout<<i<<endl;
-        break;
+            cout<<i;
+            return 0;
         }
     }
 }
