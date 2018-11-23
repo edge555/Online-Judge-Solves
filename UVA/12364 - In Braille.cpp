@@ -43,7 +43,7 @@ int main()
                 if(i!=s.size()-1)
                     pf(" ");
             }
-            cout<<endl;
+            puts("");
             rep0(i,s.size())
             {
                 int k=s[i]-'0';
@@ -51,7 +51,7 @@ int main()
                 if(i!=s.size()-1)
                     pf(" ");
             }
-            cout<<endl;
+            puts("");
             rep0(i,s.size())
             {
                 int k=s[i]-'0';
@@ -66,35 +66,21 @@ int main()
             getline(cin,x);
             getline(cin,y);
             getline(cin,z);
-            int i;
+            int i,j;
             for(i=0;i<x.size();i+=3)
             {
                 string c="";
                 c+=x[i];c+=x[i+1];
                 c+=y[i];c+=y[i+1];
                 c+=z[i];c+=z[i+1];
-                if(c==a[0])
-                    pf("0");
-                else if(c==a[1])
-                    pf("1");
-                else if(c==a[2])
-                    pf("2");
-                else if(c==a[3])
-                    pf("3");
-                else if(c==a[4])
-                    pf("4");
-                else if(c==a[5])
-                    pf("5");
-                else if(c==a[6])
-                    pf("6");
-                else if(c==a[7])
-                    pf("7");
-                else if(c==a[8])
-                    pf("8");
-                else if(c==a[9])
-                    pf("9");
+                for(j=0;j<10;j++)
+                {
+                    if(c==a[j])
+                        break;
+                }
+                cout<<j;
             }
         }
-        cout<<endl;
+        puts("");
     }
 }
