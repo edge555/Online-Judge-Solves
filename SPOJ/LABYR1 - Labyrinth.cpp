@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-#define FAST ios_base::sy1c_with_stdio(false); cin.tie(NULL)
+#define FAST ios_base::sync_with_stdio(false); cin.tie(NULL)
 #define pf printf
 #define sf(num) scanf("%d",&num)
 #define sff(num1,num2) scanf("%d %d",&num1,&num2)
