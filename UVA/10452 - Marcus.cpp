@@ -53,7 +53,6 @@ void dfs(int x,int y)
                 pf("left");
             if(k<7)
                 pf(" ");
-
             dfs(xx,yy);
         }
     }
