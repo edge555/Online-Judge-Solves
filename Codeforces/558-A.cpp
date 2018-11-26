@@ -92,5 +92,5 @@ int main()
             n++;
         }
     }
-    cout<<sum<<endl;
+    cout<<sum;
 }
