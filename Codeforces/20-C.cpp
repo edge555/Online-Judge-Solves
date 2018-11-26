@@ -92,7 +92,7 @@ int main()
     s.push(n);
     while(1)
     {
-        int k=s.top();
+        ll k=s.top();
         if(k==1)
             break;
         s.push(par[k]);
