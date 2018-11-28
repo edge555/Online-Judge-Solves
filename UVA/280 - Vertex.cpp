@@ -70,9 +70,8 @@ void printvertex(int p)
 {
     int j;
     pf("%d",vertex[p].size());
-    rep0(j,vertex[p].size()){
+    rep0(j,vertex[p].size())
         pf(" %d",vertex[p][j]);
-    }
     puts("");
 }
 int main()
@@ -107,7 +106,6 @@ int main()
         {
             sf(a);
             printvertex(a);
-
         }
         rep(i,n)
             vertex[i].clear();
