@@ -107,7 +107,6 @@ int main()
         {
             sf(a);
             printvertex(a);
-
         }
         rep(i,n)
             vertex[i].clear();
