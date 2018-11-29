@@ -12,5 +12,5 @@ int main()
         if ((a+b+c)>=2)
             cnt++;
     }
-    cout<<cnt<<endl;
+    cout<<cnt;
 }
