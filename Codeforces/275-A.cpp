@@ -46,10 +46,8 @@ int main()
                 rep0(p,5)
                 {
                     int x=i+dx[p],y=j+dy[p];
-
                     if(valid(x,y))
                         ara[x][y]=(ara[x][y]==1)?0:1;
-
                 }
             }
         }
