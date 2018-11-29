@@ -18,5 +18,5 @@ int main()
        else if (ara[0]=='X' && ara[2]=='-')
             x--;
     }
-    cout<<x<<endl;
+    cout<<x;
 }
