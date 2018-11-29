@@ -14,5 +14,5 @@ int main()
         }
     }
 
-    cout<<ara<<endl;
+    cout<<ara;
 }
