@@ -22,12 +22,10 @@ int main()
     ll ans=0,cnt=0;
     for(i=0;i<s.size();i++)
     {
-
         ll b=s[i]-'a';
-        //cout<<mp[b][cnt]<<endl;
         ans+=mp[b][cnt];
         cnt+=ara[b];
         mp[b][cnt]++;
     }
-    cout<<ans<<endl;
+    cout<<ans;
 }
