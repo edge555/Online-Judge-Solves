@@ -39,9 +39,11 @@ int main()
     int n,i,ara[100000];
     int e=0,l,t;
     cin>>n;
-    for (i=0;i<n;i++){
+    for (i=0;i<n;i++)
+    {
         cin>>ara[i];
-        if (ara[i]%2==0){
+        if (ara[i]%2==0)
+        {
             e++;
             l=i+1;
         }
@@ -49,7 +51,7 @@ int main()
             t=i+1;
     }
     if (e==1)
-        cout<<l<<endl;
+        cout<<l;
     else
-        cout<<t<<endl;
+        cout<<t;
 }
