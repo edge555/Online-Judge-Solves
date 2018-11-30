@@ -1,0 +1,16 @@
+while(True):
+    n=int(input())
+    if(n==0):
+        exit(0)
+    if(n==1):
+        print("1")
+        continue
+    i=1
+    m=n
+    while(2*i<n):
+        i*=2
+    n%=i
+    if(n==0):
+        print(m/2)
+    else:
+        print(2*n)
