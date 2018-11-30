@@ -50,7 +50,7 @@ bool out(int x,int y)
         return true;
     return false;
 }
-int bfsjane(int x,int y)
+int bfsjoe(int x,int y)
 {
     int i;
     vis[x][y]=true;
@@ -137,7 +137,7 @@ int main()
             }
         }
         bfsfire();
-        int ans=bfsjane(jx,jy);
+        int ans=bfsjoe(jx,jy);
         if(ans==INT_MAX)
             pf("IMPOSSIBLE\n");
         else
