@@ -24,16 +24,13 @@
 typedef long long int ll;
 using namespace std;
 int n,m,face;
-int par[N],rnk[N];
+int par[N];
 map<char,int>mp;
 void makeset(int n)
 {
     int i;
     rep(i,n)
-    {
         par[i]=i;
-        rnk[i]=0;
-    }
     mp.clear();
 }
 int findpar(int n)
@@ -45,16 +42,7 @@ void dsu(int x,int y)
     int xx=findpar(x);
     int yy=findpar(y);
     if(xx!=yy)
-    {
-        if(rnk[xx]>rnk[yy])
-            par[yy]=xx;
-        else
-        {
-            par[xx]=yy;
-            if(rnk[yy]==rnk[xx])
-                rnk[yy]++;
-        }
-    }
+        par[xx]=yy;
     else
         face++;
 }
