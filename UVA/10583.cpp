@@ -36,23 +36,21 @@ typedef long long ll;
 using namespace std;
 
 int par[100000];
-int r[100000];
-
+int rnk[100000];
 int ans;
-
 void makeset(int n)
 {
   for (int i=0;i<n;i++)
   {
       par[i]=i;
-      r[i]=0;
+      rnk[i]=0;
   }
   ans=n;
 }
 
 int findpar(int x)
 {
-   if (par[x]!=x)
+   if(par[x]!=x)
         par[x]=findpar(par[x]);
    return par[x];
 }
@@ -65,43 +63,40 @@ bool sameset(int p,int q)
 
 void chk(int x,int y)
 {
-    if (!sameset(x,y))
+    if(!sameset(x,y))
     {
-        if (r[x]>r[y])
+        if (rnk[x]>rnk[y])
             par[y]=x;
         else
         {
             par[x]=y;
-            if (r[y]==r[x])
-                r[y]++;
+            if (rnk[y]==rnk[x])
+                rnk[y]++;
         }
         ans--;
     }
 }
-
-void un(int x,int y)
+void dsu(int x,int y)
 {
     chk(findpar(x),findpar(y));
 }
-
 int main()
 {
     int k=1;
     while(1)
     {
-       int n,m;
-       in2(n,m);
-       if (n==0 && m==0)
-        break;
-       makeset(n);
+        int n,m;
+        in2(n,m);
+        if (n==0 && m==0)
+            break;
+        makeset(n);
         while (m--)
         {
             int i,j;
             in2(i,j);
-            un(i,j);
+            dsu(i,j);
         }
         printf ("Case %d: %d\n",k,ans);
         k++;
     }
-    return 0;
 }
