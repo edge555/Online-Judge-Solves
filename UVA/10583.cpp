@@ -35,8 +35,8 @@
 typedef long long ll;
 using namespace std;
 
-static int par[100000];
-static int r[100000];
+int par[100000];
+int r[100000];
 
 int ans;
 
