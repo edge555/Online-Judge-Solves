@@ -63,11 +63,10 @@ void dfs(int n)
             dfs(k);
     }
 }
-int firstmst()
+void firstmst()
 {
     sort(all(vec));
-    int cost=0,i;
-
+    int i;
     rep0(i,vec.size())
     {
         int u=findpar(vec[i].u);
@@ -75,11 +74,9 @@ int firstmst()
         if(u!=v)
         {
             par[u]=v;
-            cost+=vec[i].w;
             vec[i].taken=true;
         }
     }
-    return cost;
 }
 int secondmst()
 {
@@ -147,9 +144,9 @@ int main()
                 pf("No second way\n");
             else
             {
-                int cost=firstmst();
-                int cost2=secondmst();
-                pf("%d\n",cost2);
+                firstmst();
+                int cost=secondmst();
+                pf("%d\n",cost);
             }
         }
         vec.clear();
