@@ -34,6 +34,7 @@ struct edge
         return w<p.w;
     }
 };
+vector<edge>vec;
 void makeset(int n)
 {
     int i;
@@ -44,7 +45,6 @@ int findpar(int n)
 {
     return par[n]==n?n:par[n]=findpar(par[n]);
 }
-vector<edge>vec;
 bool mst()
 {
     int i,cnt=0;
