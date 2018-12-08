@@ -81,7 +81,6 @@ int main()
     {
         int ind=0,i,m,w;
         cin>>m;
-        //getchar();
         rep0(i,m)
         {
             string a,b;
