@@ -30,21 +30,22 @@ int main()
     while (scanf ("%lld %lld",&a,&b)==2)
     {
         ll i,maxx=-1,k;
-        if(a<b){
-        for (i=a;i<=b;i++)
+        if(a<b)
         {
-           k=chk(i);
-           maxx=max(maxx,k);
+            for (i=a;i<=b;i++)
+            {
+                k=chk(i);
+                maxx=max(maxx,k);
+            }
         }
-        }
-        else{
-        for (i=b;i<=a;i++)
+        else
         {
-           k=chk(i);
-           maxx=max(maxx,k);
+            for (i=b;i<=a;i++)
+            {
+                k=chk(i);
+                maxx=max(maxx,k);
+            }
         }
-        }
-
         pf("%lld %lld %lld\n",a,b,maxx);
     }
 }
