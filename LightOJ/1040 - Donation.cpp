@@ -87,7 +87,6 @@ int main()
             }
         }
         int p=mst();
-
         if(p!=-1)
             p=sum-p;
         pf("Case %d: %d\n",t,p);
