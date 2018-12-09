@@ -10,8 +10,6 @@
 typedef long long ll;
 using namespace std;
 
-
-
 int main()
 {
     int n,last,k,cs=1;
