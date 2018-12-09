@@ -13,7 +13,7 @@
 #define MOD 1000000007
 #define fi first
 #define se second
-#define N 100005
+#define N 201
 #define mem(ara) memset(ara,0,sizeof(ara))
 #define memb(ara) memset(ara,false,sizeof(ara))
 #define all(x) (x).begin(),(x).end()
