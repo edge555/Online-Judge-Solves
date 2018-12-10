@@ -30,7 +30,7 @@ int main()
         string a;
         cin>>a;
 
-        if(a[0]=='0')
+        if(a[0]=='0' && a.size()==1)
             break;
         int sum=0,k=a.size(),i;
 
