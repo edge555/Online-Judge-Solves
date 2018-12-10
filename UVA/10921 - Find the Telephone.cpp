@@ -21,7 +21,6 @@ using namespace std;
 int main()
 {
     map<char,char>mp;
-
     mp['A']='2';mp['B']='2';mp['C']='2';mp['D']='3';
     mp['E']='3';mp['F']='3';mp['G']='4';mp['H']='4';
     mp['I']='4';mp['J']='5';mp['K']='5';mp['L']='5';
