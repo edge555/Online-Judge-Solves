@@ -39,25 +39,27 @@ int main()
     string a= "I hate it",res="";
     int n,i;
     cin>>n;
-    if (n==1){
+    if (n==1)
+    {
         cout<<a<<endl;
         return 0;
     }
-    else{
-    for (i=1;i<=n;i++)
+    else
     {
-       if (i%2==1 && i!=n)
-            cout<<"I hate that ";
-        if (i==n)
+        for (i=1;i<=n;i++)
         {
-            if (n%2==0)
-                cout<<"I love it";
-            else
-                cout<<"I hate it";
+            if (i%2==1 && i!=n)
+                cout<<"I hate that ";
+            if (i==n)
+            {
+                if (n%2==0)
+                    cout<<"I love it";
+                else
+                    cout<<"I hate it";
+            }
+            if(i%2==0 && i!=n)
+                cout<<"I love that ";
         }
-        if (i%2==0 && i!=n)
-            cout<<"I love that ";
-    }
-    cout<<endl;
+        cout<<endl;
     }
 }
