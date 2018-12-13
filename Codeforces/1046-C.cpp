@@ -57,7 +57,6 @@ int main()
         {
             if(b==0)
                 dq.pop_back();
-
             else
             {
                 x+=a;
