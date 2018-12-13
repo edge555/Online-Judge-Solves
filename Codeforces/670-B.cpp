@@ -21,7 +21,7 @@ int main()
     ll ara[n+1];
     for (i=0;i<n;i++)
         sf(ara[i]);
-
+    
     ll x=floor((sqrt(8*k+1)-1)/2);
     ll a=(x*(x+1))/2;
     k-=a;
