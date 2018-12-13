@@ -8,14 +8,16 @@ int main()
     int i,j,cnt=0;
     char ch[1000][1000];
     for (i=0;i<m;i++)
+    {
         for (j=0;j<n;j++)
         {
             cin>>ch[i][j];
             if (ch[i][j]=='B' || ch[i][j]=='W' || ch[i][j]=='G')
                 cnt++;
         }
+    }
     if (cnt==(m*n))
-        cout<<"#Black&White"<<endl;
+        cout<<"#Black&White";
     else
-        cout<<"#Color"<<endl;
+        cout<<"#Color";
 }
