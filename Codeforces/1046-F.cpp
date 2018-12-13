@@ -42,7 +42,6 @@ int main()
         if((p%(l+t))>l)
              cnt++;
         pq.pop();
-
     }
     cout<<cnt*t;
 }
