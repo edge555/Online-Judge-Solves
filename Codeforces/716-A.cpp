@@ -52,5 +52,5 @@ int main()
         }
         l=i;
     }
-    cout<<vec.size()<<endl;
+    cout<<vec.size();
 }
