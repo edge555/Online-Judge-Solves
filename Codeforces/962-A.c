@@ -18,5 +18,5 @@ int main()
         sum2+=ara[i];
         cnt++;
     }
-    cout<<cnt<<endl;
+    cout<<cnt;
 }
