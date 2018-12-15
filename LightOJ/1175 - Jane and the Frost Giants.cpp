@@ -128,7 +128,6 @@ int main()
             {
                 if(a[i][j]=='F')
                     qf.push({i,j});
-
                 else if(a[i][j]=='J')
                 {
                     jx=i;
