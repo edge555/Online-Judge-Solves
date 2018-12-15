@@ -34,7 +34,6 @@ void setvalue()
     {
         dis[i]=1e18;
         grid[i].clear();
-        ans[i]=-1;
     }
 }
 void dijkstra(int src)
@@ -86,9 +85,8 @@ int main()
                 mx=dis[i];
                 farnode=i;
             }
-        }
-        rep0(i,n)
             dis[i]=1e18;
+        }
         dijkstra(farnode);
         mx=-1;
         rep0(i,n)
@@ -99,9 +97,8 @@ int main()
                 mx=dis[i];
                 farnode2=i;
             }
-        }
-        rep0(i,n)
             dis[i]=1e18;
+        }
         dijkstra(farnode2);
         rep0(i,n)
             ans[i]=max(ans[i],dis[i]);
