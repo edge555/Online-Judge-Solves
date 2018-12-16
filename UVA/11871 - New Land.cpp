@@ -5,7 +5,6 @@ int A[2005][2005];
 int hist(int hist[],int k)
 {
 	stack<int>s;
-
 	int top,maxa=0,ta=0,i=0;
 	while (i<k)
 	{
@@ -16,7 +15,6 @@ int hist(int hist[],int k)
 			top=hist[s.top()];
 			s.pop();
 			ta=top*i;
-
 			if (!s.empty())
 				ta=top*(i-s.top()-1);
 			maxa = max(ta,maxa);
@@ -29,12 +27,10 @@ int hist(int hist[],int k)
 		ta=top*i;
 		if (!s.empty())
 			ta=top*(i-s.top()-1);
-
-		maxa = max(ta, maxa);
+		maxa=max(ta,maxa);
 	}
 	return maxa;
 }
-
 int maxhist(int R,int C)
 {
     int i,j;
@@ -46,28 +42,27 @@ int maxhist(int R,int C)
             if (A[i][j]!=0)
                 A[i][j]+=A[i-1][j];
         }
-
 		res=max(res,hist(A[i],C));
 	}
 	return res;
 }
 int main()
 {
-    long long int n,k;
-    cin>>n;
+    int n,k;
+    scanf("%d",&n);
     for (k=1;k<=n;k++)
     {
-        long long int r,c,i,j,t;
+        int r,c,i,j,t;
         string a="";
-        cin>>r>>c;
+        scanf("%d %d",&r,&c);
         getchar();
         for (i=0;i<r;i++)
         {
             int p,d,x;
-            cin>>p>>d;
-            while (p--)
+            scanf("%d %d",&p,&d);
+            while(p--)
             {
-                cin>>x;
+                scanf("%d",&x);
                 while (x--)
                     a.push_back(d+'0');
                 d=(d==0)?1:0;
@@ -79,6 +74,6 @@ int main()
             }
             a.clear();
         }
-        cout<<"Case "<<k<<": "<<maxhist(r,c)<<endl;
+        printf("Case %d: %d\n",k,maxhist(r,c));
     }
 }
