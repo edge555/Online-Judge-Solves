@@ -50,8 +50,6 @@ void dfs(int n)
 }
 void topsort()
 {
-    while(!s.empty())
-        s.pop();
     int i;
     rep(i,n)
     {
