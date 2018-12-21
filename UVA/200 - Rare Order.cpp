@@ -49,13 +49,11 @@ void topsort()
 int main()
 {
     string prev="",a;
-    int cnt=0;
     while(1)
     {
         cin>>a;
         if(a[0]=='#')
             break;
-        cnt++;
         if(prev=="")
         {
             prev=a;
