@@ -43,9 +43,7 @@ void topsort()
     for(int i=1;i<=26;i++)
     {
         if(mp[i] && !vis[i])
-        {
             dfs(i);
-        }
     }
 }
 int main()
@@ -69,13 +67,10 @@ int main()
         {
             if(prev[i]!=a[i])
             {
-                ;
                 int x=prev[i]-'A'+1;
                 int y=a[i]-'A'+1;
-                //dbb(x,y);
                 mp[x]=true;
                 mp[y]=true;
-                //dbb(x,y);
                 grid[x].pb(y);
                 break;
             }
