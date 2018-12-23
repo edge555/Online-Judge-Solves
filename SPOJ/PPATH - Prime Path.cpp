@@ -102,7 +102,6 @@ int main()
             ind++;
         }
     }
-
     rep0(i,vec.size()-1)
     {
         string a=vec[i];
