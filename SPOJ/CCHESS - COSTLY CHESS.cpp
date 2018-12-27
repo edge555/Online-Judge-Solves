@@ -46,7 +46,7 @@ void setvalue()
             cost[i][j]=1e9;
     }
 }
-void dijkstra(int sx,int sy,int ex,int ey)
+void dijkstra(int sx,int sy)
 {
     cost[sx][sy]=0;
     pq.push({0,{sx,sy}});
@@ -80,7 +80,7 @@ int main()
     while(cin>>a>>b>>c>>d)
     {
         setvalue();
-        dijkstra(a,b,c,d);
+        dijkstra(a,b);
         if(cost[c][d]==1e9)
             cost[c][d]=-1;
         pf("%d\n",cost[c][d]);
