@@ -40,5 +40,5 @@ int main()
     cin>>k>>n>>w;
     ans=(((w*(w+1))/2)*k)-n;
     ans=ans<0?0:ans;
-    cout<<ans<<endl;
+    cout<<ans;
 }
