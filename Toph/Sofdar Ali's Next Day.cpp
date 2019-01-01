@@ -23,19 +23,7 @@ bool leap(int n)
 
 int main()
 {
-    vector<string>vec;
-    vec.pb("Jan");
-    vec.pb("Feb");
-    vec.pb("Mar");
-    vec.pb("Apr");
-    vec.pb("May");
-    vec.pb("Jun");
-    vec.pb("Jul");
-    vec.pb("Aug");
-    vec.pb("Sep");
-    vec.pb("Oct");
-    vec.pb("Nov");
-    vec.pb("Dec");
+    vector<string>vec={"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
     int t;
     sf(t);
     while(t--)
@@ -82,7 +70,7 @@ int main()
                m++;
            }
            else
-            d++;
+              d++;
        }
        else
        {
@@ -91,7 +79,7 @@ int main()
                d=1;m=1;y++;
            }
            else
-            d++;
+              d++;
        }
        printf("%02d ",d);
        cout<<vec[m-1];
