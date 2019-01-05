@@ -1,4 +1,3 @@
-package testing;
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
@@ -8,7 +7,6 @@ public class Main {
         while(tc-->0)
         {
             String a=sc.nextLine();
-            
             int sum=0,sum2=-1,i;
             boolean chk=true;
             for(i=0;i<a.length();i++)
@@ -33,12 +31,10 @@ public class Main {
                     }
                 }
             }
-    
             if(sum==sum2 && sum+sum2!=0)
                 System.out.println("YES");
             else
                 System.out.println("NO");
         }
-    }
-    
+    }  
 }
