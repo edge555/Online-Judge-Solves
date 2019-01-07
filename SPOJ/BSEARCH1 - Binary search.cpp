@@ -40,7 +40,6 @@ int bs(int low,int high,ll num)
             low=mid+1;
         else if(num<ara[mid])
             high=mid-1;
-        //bs(low,high,num);
     }
     return index;
 }
