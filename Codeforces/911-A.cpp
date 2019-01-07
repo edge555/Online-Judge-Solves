@@ -33,7 +33,6 @@ int main()
             li=i;
             mn=k;
         }
-
     }
     int mn2=100005;
     bool chk=false;
@@ -44,6 +43,5 @@ int main()
     }
     for (i=1;i<vec2.size();i++)
         mn2=min(mn2,(vec2[i]-vec2[i-1]));
-
     cout<<mn2;
 }
