@@ -42,15 +42,14 @@ int main()
     for (i=0;i<n;i++)
         cin>>ara[i];
     sort(ara,ara+n);
-
-    if (k==0)
+    if(k==0)
     {
-        if (ara[k]==1)
+        if(ara[k]==1)
             cout<<"-1"<<endl;
         else
             cout<<"1"<<endl;
     }
-    else if (ara[k-1]==ara[k])
+    else if(ara[k-1]==ara[k])
         cout<<"-1"<<endl;
     else
         cout<<ara[k-1]<<endl;
