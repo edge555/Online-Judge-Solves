@@ -13,5 +13,5 @@ int main()
     cin>>a;
     cout<<a;
     reverse(a.begin(),a.end());
-    cout<<a<<endl;
+    cout<<a;
 }
