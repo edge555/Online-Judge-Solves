@@ -2,7 +2,6 @@
 int main ()
 {
     int i,n,a;
-
     scanf ("%d",&n);
     for (i=0;i<n;i++)
     {
@@ -12,5 +11,4 @@ int main ()
         else
             printf ("YES\n");    
     }
-    return 0;
 }
