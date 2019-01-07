@@ -1,6 +1,5 @@
 #include<stdio.h>
 int main ()
-
 {
     int tests,num;
     scanf("%d",&num);
@@ -19,6 +18,7 @@ int main ()
             mile+=m;
             juice+=j;
         }
+        
         if(mile<juice)
             printf("Case %d: Mile %d\n",tests,mile);
         else if (mile>juice)
@@ -26,6 +26,5 @@ int main ()
         else
             printf("Case %d: Mile Juice %d\n",tests,mile);
     }
-
     return 0;
 }
