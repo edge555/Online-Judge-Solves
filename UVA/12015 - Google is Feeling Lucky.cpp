@@ -37,7 +37,6 @@ int main()
                 vec.clear();
                 vec.pb(a);
             }
-            //dbb(mx,vec.size());
             mx=max(k,mx);
         }
         pf("Case #%d:\n",j);
