@@ -18,18 +18,18 @@ int main()
 	string s;
 	cin>>s;
 	for(i=0,j=0;i<s.size();i++)
-    {
+    	{
 		if(s[i]<=j+'a')
-        {
-            s[i]=j+'a';
-            j++;
+        	{
+            		s[i]=j+'a';
+            		j++;
 		}
 		if(j==26)
-            break;
+            		break;
 	}
 	if(j==26)
-        cout<<s<<endl;
+        	cout<<s<<endl;
 	else
-        cout<<"-1"<<endl;
+        	cout<<"-1"<<endl;
 
 }
