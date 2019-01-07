@@ -43,18 +43,17 @@ int main()
     cin>>a>>b;
     double x,y;
     if(a==b)
-    cout<<"="<<endl;
-
+    cout<<"=";
     else
     {
         x=b*log(a);
         y=a*log(b);
 
         if(x>y)
-            cout<<">"<<endl;
+            cout<<">";
         else if(x<y)
-            cout<<"<"<<endl;
+            cout<<"<";
         else
-            cout<<"="<<endl;
+            cout<<"=";
     }
 }
