@@ -3,12 +3,11 @@ using namespace std;
 
 bool chkpali(string s)
 {
-    if (s == string(s.rbegin(),s.rend()))
+    if (s==string(s.rbegin(),s.rend()))
         return true;
     else
         return false;
 }
-
 int main()
 {
     string s;
@@ -20,7 +19,6 @@ int main()
         cout<< s.length();
         return 0;
     }
-
     for(int i=a;i<b;i++)
         for(int j=a;j<b;j++)
     {
@@ -32,6 +30,4 @@ int main()
         }
     }
     cout<<maxlen;
-
-    return 0;
 }
