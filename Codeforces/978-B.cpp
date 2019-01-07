@@ -59,5 +59,5 @@ int main()
         else
             i++;
     }
-    cout<<res<<endl;
+    cout<<res;
 }
