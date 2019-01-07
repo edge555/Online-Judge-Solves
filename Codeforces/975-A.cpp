@@ -42,21 +42,17 @@ int main()
     set<string>ans;
     set<char>ss;
     set<char>::iterator it;
-
     for (j=1;j<=n;j++)
     {
         cin>>s;
         ss.clear();
-
         for (i=0;i<s.size();i++)
             ss.insert(s[i]);
-
         string st="";
         for(it=ss.begin();it!=ss.end();it++)
             st=st+(*it);
 
         ans.insert(st);
-
     }
-    cout<<ans.size()<<endl;
+    cout<<ans.size();
 }
