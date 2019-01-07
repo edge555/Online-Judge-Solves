@@ -40,8 +40,7 @@ int main()
     ll n;
     in1(n);
     if(n%2==0)
-        cout<<"0"<<endl;
+        cout<<"0";
     else
-        cout<<"1"<<endl;
-    return 0;
+        cout<<"1";
 }
