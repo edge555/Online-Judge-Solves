@@ -16,6 +16,5 @@ int main()
             }
         }
 
-    cout<<ara[k-1]<<endl;
-    return 0;
+    cout<<ara[k-1];
 }
