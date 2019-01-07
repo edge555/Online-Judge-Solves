@@ -37,7 +37,6 @@ using namespace std;
 int main()
 {
     int a,b,c,cnt=0;
-
     cin>>a>>b>>c;
     if (a==1)
         cnt++;
@@ -48,24 +47,24 @@ int main()
 
     if (cnt==1)
     {
-    if (b==1)
-       cout<<max(a,c)*(b+min(a,c))<<endl;
-    else if (a==1)
-        cout<<(b+1)*c<<endl;
-    else if (c==1)
-        cout<<a*(b+1)<<endl;
+        if (b==1)
+            cout<<max(a,c)*(b+min(a,c));
+        else if (a==1)
+            cout<<(b+1)*c;
+        else if (c==1)
+            cout<<a*(b+1);
     }
     else if (cnt==3)
         cout<<"3"<<endl;
     else if (cnt==2)
     {
        if (a==1 && b==1)
-            cout<<2*c<<endl;
+            cout<<2*c;
        else if (b==1 && c==1)
-            cout<<2*a<<endl;
+            cout<<2*a;
        else if (a==1 && c==1)
-        cout<<2+b<<endl;
+        cout<<2+b;
     }
     else if (cnt==0)
-        cout<<a*b*c<<endl;
+        cout<<a*b*c;
 }
