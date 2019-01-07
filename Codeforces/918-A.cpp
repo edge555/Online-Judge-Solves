@@ -18,11 +18,11 @@ int main()
     fib[1]=1;
     st.insert(fib[0]);
     st.insert(fib[1]);
-    for (i=2;i<20;i++){
+    for (i=2;i<20;i++)
+    {
         fib[i]=fib[i-1]+fib[i-2];
         st.insert(fib[i]);
     }
-
     int n,i,j;
     sf(n);
     string a="";
@@ -33,6 +33,5 @@ int main()
         else
             a.push_back('O');
     }
-    cout<<a<<endl;
-
+    cout<<a;
 }
