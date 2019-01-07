@@ -5,9 +5,8 @@ int main()
 {
    ll ara[16],i,j;
    for(i=0;i<14;i++)
-    {
     cin>>ara[i];
-   }
+ 
    ll mx=-1;
    for(i=0;i<14;i++)
    {
@@ -16,7 +15,6 @@ int main()
 
         ll araa[14];
         memset(araa,0,sizeof araa);
-
         for(j=0;j<14;j++)
         {
             if(j==i)
@@ -40,8 +38,7 @@ int main()
             if(araa[n]%2==0)
                 ans+=araa[n];
         }
-
         mx=max(mx,ans);
    }
-    cout<<mx<<endl;
+   cout<<mx;
 }
