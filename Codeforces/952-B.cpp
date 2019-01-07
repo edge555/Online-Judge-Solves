@@ -9,13 +9,10 @@ int main()
 		getline(cin,t);
 		if(t!="no")
 		{
-			if(t=="great"||t=="cool"||t=="not bad"||t=="don't think so"||t=="don't touch me"){
+			if(t=="great"||t=="cool"||t=="not bad"||t=="don't think so"||t=="don't touch me")
 				cout<<"normal"<<endl;
-			}
 			else
-			{
 				cout<<"grumpy"<<endl;
-			}
 		}
 	}
 }
