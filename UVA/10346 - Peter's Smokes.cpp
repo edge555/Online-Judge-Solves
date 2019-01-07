@@ -7,7 +7,7 @@ int main()
     {
         k=a;
         l=a;
-        while (l>=b)
+        while(l>=b)
         {
             a=l/b;
             k+=a;
