@@ -35,7 +35,6 @@ int main()
         sf(k);
         vec.pb(k);
     }
-    sort(all(vec));
     int q;
     scanf("%d",&q);
     while(q--)
