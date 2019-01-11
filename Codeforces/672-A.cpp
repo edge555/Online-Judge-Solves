@@ -22,12 +22,10 @@ int main()
     {
         string b=to_string(i);
         a+=b;
-        //db(b);
         if(a.size()>=1001)
             break;
-
     }
     int n;
     sf(n);
-    cout<<a[--n]<<endl;
+    cout<<a[--n];
 }
