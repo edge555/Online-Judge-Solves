@@ -19,9 +19,9 @@ typedef long long int ll;
 using namespace std;
 #define N 100005
 bool mark[N];
-void seive()
+void sieve()
 {
-    long long int i;
+    int i,j;
     memset(mark,true,sizeof(mark));
 
     for(i=4;i<N;i+=2)
@@ -31,14 +31,14 @@ void seive()
     {
         if(mark[i])
         {
-            for(int j=i*i;j<N;j+=i*2)
+            for(j=i*i;j<N;j+=i*2)
                 mark[j]=false;
         }
     }
 }
 int main()
 {
-    seive();
+    sieve();
     int n,i;
     sf(n);
     if(n==1)
