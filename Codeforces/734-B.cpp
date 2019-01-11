@@ -18,14 +18,12 @@ int main()
 {
     ll two,thr,fiv,six,cnt=0,sum=0;
     cin>>two>>thr>>fiv>>six;
-
     while(1)
     {
         if(two==0 || fiv==0 || six==0)
             break;
         cnt++;
         two--;fiv--;six--;
-
     }
     sum+=(cnt*256);
     cnt=0;
