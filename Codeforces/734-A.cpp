@@ -47,9 +47,9 @@ int main()
             d++;
     }
     if (d>n-d)
-        cout<<"Danik"<<endl;
+        cout<<"Danik";
     else if (n-d>d)
-        cout<<"Anton"<<endl;
+        cout<<"Anton";
     else
-        cout<<"Friendship"<<endl;
+        cout<<"Friendship";
 }
