@@ -47,5 +47,5 @@ int main()
         else
             cnt+=2;
     }
-    cout<<cnt<<endl;
+    cout<<cnt;
 }
