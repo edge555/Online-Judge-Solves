@@ -43,10 +43,10 @@ int main()
     {
         if (a[i]=='9' || a[i]=='H' || a[i]=='Q'){
             res=true;
-            cout<<"YES"<<endl;
+            cout<<"YES";
             break;
         }
     }
     if (!res)
-        cout<<"NO"<<endl;
+        cout<<"NO";
 }
