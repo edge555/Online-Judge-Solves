@@ -38,25 +38,24 @@ int main()
 {
    string a="",b="";
    cin>>a;
-   int l=0,u=0;
-   for (int i=0;i<a.size();i++)
+   int l=0,u=0,i;
+   for (i=0;i<a.size();i++)
    {
        if (a[i]>='a' && a[i]<='z')
-        l++;
+            l++;
        else
-        u++;
+            u++;
    }
    if (l>u || l==u)
    {
-       for (int i=0;i<a.size();i++)
+       for (i=0;i<a.size();i++)
             a[i]=tolower(a[i]);
        cout<<a<<endl;
    }
    else
    {
-       for (int i=0;i<a.size();i++)
+       for (i=0;i<a.size();i++)
             a[i]=toupper(a[i]);
        cout<<a<<endl;
    }
-
 }
