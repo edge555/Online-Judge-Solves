@@ -5,7 +5,6 @@ int main()
     string a="",b="",res="";
     getline (cin,a);
     getline (cin,b);
-
     int i;
     for (i=0;i<a.size();i++)
     {
@@ -14,5 +13,5 @@ int main()
         else
             res.push_back('0');
     }
-    cout<<res<<endl;
+    cout<<res;
 }
