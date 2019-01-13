@@ -12,5 +12,5 @@ int main()
         if (a[i]==a[i+1])
             cnt++;
     }
-    cout<<cnt<<endl;
+    cout<<cnt;
 }
