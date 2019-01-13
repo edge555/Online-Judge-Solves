@@ -27,9 +27,8 @@ int main()
     it=st.begin();
     int p=*it;
     it++;
-    //debug2(p,*it);
     if(sum<2*(p+*it))
-        pf("%d\n",sum);
+        pf("%d",sum);
     else
-        pf("%d\n",2*(p+*it));
+        pf("%d",2*(p+*it));
 }
