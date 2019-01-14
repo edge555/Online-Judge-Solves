@@ -57,7 +57,7 @@ int main()
         }
         else
         {
-            for(j=1;j*j<=i;j++)
+            for(j=1;j*j<=i;j+=2)
             {
                 if(i%j==0)
                 {
