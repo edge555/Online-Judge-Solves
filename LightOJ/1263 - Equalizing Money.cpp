@@ -112,7 +112,6 @@ int main()
             }
             st.insert(ans/res[i].size());
         }
-
         if(chk && st.size()==1)
             pf("Yes\n");
         else
