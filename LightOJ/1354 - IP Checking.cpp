@@ -42,7 +42,6 @@ int main()
             if(a[i]=='.' || i==a.size()-1)
             {
                 q.push(p);
-                //cout<<p<<endl;
                 p.clear();
             }
         }
@@ -52,7 +51,6 @@ int main()
             i=0,cnt=8;
             string s=q.front(),bn="";
             int n=num(s);
-            //db(n);
             while(n!=0)
             {
                 if(n>=ara[i])
@@ -62,11 +60,8 @@ int main()
                 }
                 else
                     bn.pb('0');
-
                 i++;
-                //dbb(n,bn);
             }
-            //cout<<bn<<endl;
             if(bn.size()!=8)
             {
                 for (int z=0;z<8-bn.size();i++)
@@ -77,18 +72,15 @@ int main()
                 res.pb('.');
             q.pop();
         }
-        //cout<<res<<endl;
         bool chk=true;
         for (i=0;i<res.size();i++)
         {
             if(b[i]!=res[i])
             {
-                //cout<<b[i]<<"  "<<res[i]<<endl;
                 chk=false;
                 break;
             }
         }
-        //dbb(b,res);
         pf("Case %d: ",j);
         if(chk)
             puts("Yes");
