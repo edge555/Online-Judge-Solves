@@ -41,5 +41,4 @@ int main()
         pf("Case %d: ",j);
         (sum==0)?puts("divisible"):puts("not divisible");
     }
-
 }
