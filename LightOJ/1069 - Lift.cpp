@@ -1,15 +1,13 @@
 #include <stdio.h>
 int main ()
 {
- int i=1,a,b,d,n,r,t,m;
+    int i=1,a,b,d,n,r,t,m;
+    scanf ("%d",&n);
 
- scanf ("%d",&n);
-
- while (i<=n)
- {
-     scanf ("%d %d",&a,&b);
-     if (a!=0 && b<=100)
-     {
+    while (i<=n)
+    {
+        scanf ("%d %d",&a,&b);
+    
         d=b-a;
         t=(b-a)*4;
         m=(a*4)+19;
@@ -28,7 +26,6 @@ int main ()
             printf ("Case %d: %d\n",i,r);
         }
         i++;
-     }
- }
- return 0;
+    }
+    return 0;
 }
