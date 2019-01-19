@@ -12,13 +12,11 @@ int main()
 
         while(n--)
         {
-        cin>>x>>y;
-
-        if(x>x1 && y>y1 && y<y2 && x<x2 )
-            cout<<"Yes"<<endl;
-        else
-            cout<<"No"<<endl;
+            cin>>x>>y;
+            if(x>x1 && y>y1 && y<y2 && x<x2 )
+                cout<<"Yes"<<endl;
+            else
+                cout<<"No"<<endl;
         }
     }
-
 }
