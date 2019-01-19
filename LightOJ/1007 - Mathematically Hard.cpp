@@ -29,7 +29,7 @@ void seivePhi()
             for(j=i;j<=N;j+=i)
             {
                 mark[j]=1;
-                phi[j]=phi[j]/i * (i-1);
+                phi[j]=phi[j]/i*(i-1);
             }
     for(i=3;i<N;i++)
     {
