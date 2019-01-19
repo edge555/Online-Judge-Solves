@@ -16,11 +16,9 @@ int main()
     sf(n);
     for (tc=1;tc<=n;tc++)
     {
-      ll n,m,kk;
-
-      sff(n,m);
-      kk=(n*m)/2;
-
-      cspf(kk);
+        ll n,m,kk;
+        sff(n,m);
+        kk=(n*m)/2;
+        cspf(kk);
     }
 }
