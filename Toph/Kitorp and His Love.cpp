@@ -47,7 +47,7 @@ ll bs(ll n)
         ll zero=countzero(mid);
         if(zero==n)
         {
-            ans=true;;
+            ans=true;
             high=mid;
         }
         else if(zero>n)
