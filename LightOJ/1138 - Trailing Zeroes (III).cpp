@@ -47,7 +47,7 @@ int bs(int n)
         int zero=countzero(mid);
         if(zero==n)
         {
-            ans=true;;
+            ans=true;
             high=mid;
         }
         else if(zero>n)
