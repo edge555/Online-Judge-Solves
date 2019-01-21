@@ -52,7 +52,6 @@ void dfs(string a,int ind)
     }
     if(a.size()>=len)
         return;
-    queue<pi>q;
     int i;
     string c="";
     for(i=ind;i<len;i++)
