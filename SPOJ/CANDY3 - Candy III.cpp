@@ -20,9 +20,10 @@ int main()
     {
        ans=0;
        sf(k);
-       for(i=0;i<k;i++){
-       sf(a);
-       ans=(ans+a)%k;
+       for(i=0;i<k;i++)
+       {
+           sf(a);
+           ans=(ans+a)%k;
        }
        ans%=k;
        if(ans==0)
