@@ -17,7 +17,6 @@ int main()
     ll t;
     string s;
     cin>>t;
-
     while(t--)
     {
         cin>>s;
@@ -56,7 +55,6 @@ int main()
         }
 
         f=false;
-
         for(ll i=sz;i>=0;i--)
         {
             if(s[i]<'9')
