@@ -54,12 +54,12 @@ int main()
     cin>>n;
     while(n--)
     {
-    cin>>s1>>s2;
-    int a,b,c,d;
-    a=s1[0]-96;
-    b=s1[1]-'0';
-    c=s2[0]-96;
-    d=s2[1]-'0';
-    bfs(a,b,c,d);
+        cin>>s1>>s2;
+        int a,b,c,d;
+        a=s1[0]-96;
+        b=s1[1]-'0';
+        c=s2[0]-96;
+        d=s2[1]-'0';
+        bfs(a,b,c,d);
     }
 }
