@@ -10,7 +10,7 @@ bool func(struct act a,struct act b)
 		return a.first<b.first;
 	return a.second<b.second;
 }
-main()
+int main()
 {
 	int t;
 	cin>>t;
