@@ -31,6 +31,4 @@ int main()
         else
             pf("N\n");
     }
-
 }
-
