@@ -99,8 +99,3 @@ int main()
     }
     //cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 }
-/*
-4
-1 10
-ALLIZZWELL
-*/
