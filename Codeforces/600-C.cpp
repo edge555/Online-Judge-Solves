@@ -35,7 +35,6 @@ int main()
 {
     string a;
     cin>>a;
-
     int i,cnt=0;
     map<char,int>mp,mp2;
     rep0(i,a.size())
