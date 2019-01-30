@@ -59,8 +59,6 @@ bool sameset(int p,int q)
 {
   return findpar[p]==findpar[q];
 }
-
-
 void chk(int x,int y)
 {
     if(!sameset(x,y))
