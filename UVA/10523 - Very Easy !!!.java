@@ -9,7 +9,7 @@ public class Main {
         {
             a=sc.nextInt();
             b=sc.nextInt();
-            BigInteger sum=new BigInteger("0");
+            BigInteger sum = new BigInteger("0");
             BigInteger temp = BigInteger.valueOf(b);
             int i;
             for(i=1;i<=a;i++)
