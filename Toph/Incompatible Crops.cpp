@@ -44,6 +44,8 @@ int main()
         rep0(j,m)
         {
             bool chk=false;
+            if(a[i][j]!='.')
+                continue;
             rep0(k,4)
             {
                 int x=i+dx[k];
@@ -58,6 +60,5 @@ int main()
                 cnt++;
         }
     }
-    cout<<cnt;
-    //cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
+    pf("%d",cnt);
 }
