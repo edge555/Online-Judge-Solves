@@ -2,8 +2,13 @@
 
 #define FAST ios_base::sync_with_stdio(false); cin.tie(NULL)
 #define pf printf
+#define sc scanf
 #define sf(num) scanf("%d",&num)
 #define sff(num1,num2) scanf("%d %d",&num1,&num2)
+#define sfff(num1,num2,num3) scanf("%d %d %d",&num1,&num2,&num3);
+#define sl(num) scanf("%lld",&num)
+#define sll(num1,num2) scanf("%lld %lld",&num1,&num2)
+#define slll(num1,num2,num3) scanf("%lld %lld %lld",&num1,&num2,&num3);
 #define rep(i,n) for(i=1;i<=n;i++)
 #define rep0(i,n) for(i=0;i<n;i++)
 #define reps(i,a,n) for(i=a;i<=n;i++)
@@ -12,43 +17,51 @@
 #define MOD 1000000007
 #define fi first
 #define se second
+#define N 1001
+#define mem(ara,n) memset(ara,n,sizeof(ara))
+#define memb(ara) memset(ara,false,sizeof(ara))
 #define all(x) (x).begin(),(x).end()
+#define vi vector<int>
+#define pi pair<int,int>
+#define pii pair<pair<int,int>,pair<int,int> >
 #define db(x) cout<<#x<<" :: "<<x<<"\n";
 #define dbb(x,y) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<"\n";
+#define fr freopen("input.txt","r",stdin);
+#define fw freopen("output.txt","w",stdout);
+#define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-
 int main()
 {
-    int wt[1005],val[1005],W[1005],dp[1005][50];
-    int w,i,mem,j,n,k,m,tc;
-    cin>>tc;
-    while(tc--)
+    int t,tc;
+    sf(tc);
+    rep(t,tc)
     {
-        cin>>n;
-        int sum=0;
-        for(i=1;i<=n;i++)
-            cin>>val[i]>>wt[i];
-
-        cin>>mem;
-        for(k=1;k<=mem;k++)
-            cin>>W[k];
-
-        memset(dp,0,sizeof(dp));
-        for(k=1;k<=mem;k++)
+        int i,j,n;
+        int wt[N],val[N],cap[N];
+        int dp[N][31];
+        sf(n);
+        rep(i,n)
+            sff(val[i],wt[i]);
+        mem(dp,0);
+        int m,k,sum=0;
+        sf(m);
+        rep(i,m)
+            sf(cap[i]);
+        rep(i,m)
         {
-            for(m=1;m<=n;m++)
+            rep(j,n)
             {
-                for(w=1;w<=W[k];w++)
+                rep(k,cap[i])
                 {
-                    if(wt[m]>w)
-                        dp[m][w]=dp[m-1][w];
+                    if(wt[j]>k)
+                        dp[j][k]=dp[j-1][k];
                     else
-                        dp[m][w]=max(dp[m-1][w],val[m]+dp[m-1][w-wt[m]]);
+                        dp[j][k]=max(dp[j-1][k],val[j]+dp[j-1][k-wt[j]]);
                 }
             }
-            sum=sum+dp[n][W[k]];
+            sum+=dp[n][cap[i]];
         }
-        cout<<sum<<endl;
+        pf("%d\n",sum);
     }
 }
