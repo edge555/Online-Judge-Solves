@@ -50,7 +50,6 @@ ll coinchange(int ind,int sum)
 }
 int main()
 {
-
     sff(s,n);
     int i,k;
     rep0(i,n)
