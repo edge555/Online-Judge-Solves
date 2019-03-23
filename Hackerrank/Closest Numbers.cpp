@@ -33,25 +33,21 @@ typedef long long int ll;
 using namespace std;
 int main()
 {
-    int t,tc;
-    sf(tc);
-    rep(t,tc)
+    int i,n,k;
+    sf(n);
+    vector<int>vec;
+    rep0(i,n)
     {
-        ll a,b;
-        sll(a,b);
-        ll cnt=0;
-        while(a%3!=1)
-        {
-            cnt++;
-            a++;
-        }
-        while(b%3!=1)
-        {
-            cnt++;
-            b--;
-        }
-        ll diff=b-a;
-        cnt+=((diff/3)*2);
-        pf("Case %d: %lld\n",t,cnt);
+        sf(k);
+        vec.pb(k);
+    }
+    sort(all(vec));
+    int mx=INT_MAX;
+    rep0(i,n-1)
+        mx=min(mx,abs(vec[i+1]-vec[i]));
+    rep0(i,n-1)
+    {
+        if(abs(vec[i+1]-vec[i])==mx)
+            pf("%d %d ",vec[i],vec[i+1]);
     }
 }

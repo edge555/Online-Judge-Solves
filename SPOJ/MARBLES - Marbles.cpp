@@ -35,23 +35,19 @@ int main()
 {
     int t,tc;
     sf(tc);
-    rep(t,tc)
+    while(tc--)
     {
-        ll a,b;
-        sll(a,b);
-        ll cnt=0;
-        while(a%3!=1)
+        ll res=1,n,k;
+        sll(n,k);
+        if(n-k<(k-1))
+            k=n-k+1;
+        if(k==1)
+            printf("1\n");
+        else
         {
-            cnt++;
-            a++;
+            for(int i=1;i<=k-1;i++)
+                res=res*(n-i)/(i);
+            printf("%lld\n",res);
         }
-        while(b%3!=1)
-        {
-            cnt++;
-            b--;
-        }
-        ll diff=b-a;
-        cnt+=((diff/3)*2);
-        pf("Case %d: %lld\n",t,cnt);
     }
 }
