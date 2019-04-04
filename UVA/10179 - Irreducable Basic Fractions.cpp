@@ -31,9 +31,9 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-long long int phi(long long x)
+ll phi(ll x)
 {
-    long long int ret=1,i,pow;
+    ll ret=1,i,pow;
     for(i=2;x!=1;i++)
     {
         pow=1;
