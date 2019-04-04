@@ -31,33 +31,49 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-ll phi(ll x)
+ll ans=-1;
+int dig(ll n)
 {
-    ll ret=1,i,pow;
-    for(i=2;x!=1;i++)
+    return log10(n)+1;
+}
+void func(ll n,ll p)
+{
+    if(dig(n)==1)
     {
-        pow=1;
-        if(i>sqrt(x))
-            break;
-        while(!(x%i))
-        {
-            x/=i;
-            pow*=i;
-        }
-        ret*=(pow-(pow/i));
+        if(n)
+            p*=n;
+        ans=max(ans,p);
+        return;
     }
-    if(x!=1)
-        ret*=(x-1);
-    return ret;
+    if(n%10==0)
+        n--;
+    if(n%10==9)
+    {
+        p*=9;
+        n/=10;
+        if(!n)
+            ans=max(ans,p);
+        else
+            func(n,p);
+    }
+    else
+    {
+        ll x=p*(n%10);
+        func(n/10,x);
+        ll y=p*9;
+        n/=10;
+        n--;
+        if(!n)
+            ans=max(ans,y);
+        else
+            func(n,y);
+    }
 }
 int main()
 {
     ll n;
-    while(1)
-    {
-        sl(n);
-        if(n==0)
-            return 0;
-        pf("%lld\n",phi(n));
-    }
+    sl(n);
+    ans=-1;
+    func(n,1);
+    pf("%lld",ans);
 }

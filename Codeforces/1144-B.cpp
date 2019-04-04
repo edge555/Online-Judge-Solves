@@ -13,7 +13,6 @@
 #define rep0(i,n) for(i=0;i<n;i++)
 #define reps(i,a,n) for(i=a;i<=n;i++)
 #define pb push_back
-#define mpp make_pair
 #define MOD 1000000007
 #define fi first
 #define se second
@@ -31,33 +30,45 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-ll phi(ll x)
-{
-    ll ret=1,i,pow;
-    for(i=2;x!=1;i++)
-    {
-        pow=1;
-        if(i>sqrt(x))
-            break;
-        while(!(x%i))
-        {
-            x/=i;
-            pow*=i;
-        }
-        ret*=(pow-(pow/i));
-    }
-    if(x!=1)
-        ret*=(x-1);
-    return ret;
-}
 int main()
 {
-    ll n;
-    while(1)
+    int i,n;
+    sf(n);
+    int k,even=0,odd=0;
+    vector<int>e,o;
+    for(i=0;i<n;i++)
     {
-        sl(n);
-        if(n==0)
-            return 0;
-        pf("%lld\n",phi(n));
+        sf(k);
+        if(k&1)
+        {
+            odd++;
+            o.pb(k);
+        }
+        else
+        {
+            even++;
+            e.pb(k);
+        }
+    }
+    if(even-odd==0 || even-odd==1 || odd-even==1)
+        puts("0");
+    else
+    {
+        sort(all(e));
+        sort(all(o));
+        ll sum=0;
+        if(even>odd)
+        {
+            int p=o.size()+1;
+            for(i=0;i<e.size()-p;i++)
+                sum+=e[i];
+        }
+        else
+        {
+            int p=e.size()+1;
+            for(i=0;i<o.size()-p;i++)
+                sum+=o[i];
+        }
+        pf("%lld\n",sum);
     }
 }

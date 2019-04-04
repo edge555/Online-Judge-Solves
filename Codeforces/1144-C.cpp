@@ -17,7 +17,7 @@
 #define MOD 1000000007
 #define fi first
 #define se second
-#define N 100005
+#define N 200005
 #define mem(ara,n) memset(ara,n,sizeof(ara))
 #define memb(ara) memset(ara,false,sizeof(ara))
 #define all(x) (x).begin(),(x).end()
@@ -31,33 +31,43 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-ll phi(ll x)
+int ara[N];
+bool comp(int a,int b)
 {
-    ll ret=1,i,pow;
-    for(i=2;x!=1;i++)
-    {
-        pow=1;
-        if(i>sqrt(x))
-            break;
-        while(!(x%i))
-        {
-            x/=i;
-            pow*=i;
-        }
-        ret*=(pow-(pow/i));
-    }
-    if(x!=1)
-        ret*=(x-1);
-    return ret;
+    return a>b;
 }
 int main()
 {
-    ll n;
-    while(1)
+    int n,i,k;
+    sf(n);
+    bool chk=true;
+    vector<int>asc,dec;
+    rep0(i,n)
     {
-        sl(n);
-        if(n==0)
-            return 0;
-        pf("%lld\n",phi(n));
+        sf(k);
+        ara[k]++;
+        if(ara[k]>=3)
+        {
+            chk=false;
+            continue;
+        }
+        if(ara[k]==1)
+            asc.pb(k);
+        else
+            dec.pb(k);
+    }
+    if(!chk)
+        puts("NO");
+    else
+    {
+        sort(asc.begin(),asc.end());
+        sort(dec.begin(),dec.end(),comp);
+        puts("YES");
+        pf("%d\n",asc.size());
+        for(i=0;i<asc.size();i++)
+            pf("%d ",asc[i]);
+        pf("\n%d\n",dec.size());
+        for(i=0;i<dec.size();i++)
+            pf("%d ",dec[i]);
     }
 }

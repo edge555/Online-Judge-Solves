@@ -31,33 +31,42 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-ll phi(ll x)
+bool calc(char a,char b)
 {
-    ll ret=1,i,pow;
-    for(i=2;x!=1;i++)
-    {
-        pow=1;
-        if(i>sqrt(x))
-            break;
-        while(!(x%i))
-        {
-            x/=i;
-            pow*=i;
-        }
-        ret*=(pow-(pow/i));
-    }
-    if(x!=1)
-        ret*=(x-1);
-    return ret;
+    int x=a-'a';
+    int y=b-'a';
+    if(x-y==1 || y-x==1)
+        return true;
+    return false;
 }
 int main()
 {
-    ll n;
-    while(1)
+    int i,n;
+    sf(n);
+    while(n--)
     {
-        sl(n);
-        if(n==0)
-            return 0;
-        pf("%lld\n",phi(n));
+        string a;
+        cin>>a;
+        if(a.size()==1)
+        {
+            puts("YES");
+            continue;
+        }
+        bool ans=true;
+        unordered_map<char,int>mp;
+        sort(all(a));
+        mp[a[0]]++;
+        rep(i,a.size()-1)
+        {
+            mp[a[i]]++;
+            if(mp[a[i]]>1)
+                ans=false;
+            if(!calc(a[i],a[i-1]))
+                ans=false;
+        }
+        if(ans)
+            puts("YES");
+        else
+            puts("NO");
     }
 }
