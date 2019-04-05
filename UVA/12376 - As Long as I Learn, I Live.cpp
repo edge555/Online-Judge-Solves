@@ -31,33 +31,65 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-ll phi(ll x)
+int n,m,wt[N],last,cost;
+vector<int>grid[N];
+bool vis[N];
+void reset()
 {
-    ll ret=1,i,pow;
-    for(i=2;x!=1;i++)
+    int i;
+    rep0(i,n)
     {
-        pow=1;
-        if(i>sqrt(x))
-            break;
-        while(!(x%i))
-        {
-            x/=i;
-            pow*=i;
-        }
-        ret*=(pow-(pow/i));
+        vis[i]=false;
+        grid[i].clear();
     }
-    if(x!=1)
-        ret*=(x-1);
-    return ret;
+}
+void bfs(int s)
+{
+    vis[s]=true;
+    queue<int>q;
+    q.push(s);
+    int i,u,v;
+    while(!q.empty())
+    {
+        int u=q.front();
+        q.pop();
+        if(!grid[u].size())
+            continue;
+        int i,v,mx=-1;
+        rep0(i,grid[u].size())
+        {
+            v=grid[u][i];
+            if(vis[v])
+                continue;
+            if(wt[v]>mx)
+            {
+                mx=wt[v];
+                last=v;
+            }
+        }
+        cost+=mx;
+        vis[last]=true;
+        q.push(last);
+    }
 }
 int main()
 {
-    ll n;
-    while(1)
+    int t,tc;
+    sf(tc);
+    rep(t,tc)
     {
-        sl(n);
-        if(n==0)
-            return 0;
-        pf("%lld\n",phi(n));
+        sff(n,m);
+        reset();
+        int i,a,b;
+        rep0(i,n)
+            sf(wt[i]);
+        rep0(i,m)
+        {
+            sff(a,b);
+            grid[a].pb(b);
+        }
+        cost=0;
+        bfs(0);
+        pf("Case %d: %d %d\n",t,cost,last);
     }
 }

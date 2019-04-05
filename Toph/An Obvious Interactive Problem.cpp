@@ -31,33 +31,22 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-ll phi(ll x)
-{
-    ll ret=1,i,pow;
-    for(i=2;x!=1;i++)
-    {
-        pow=1;
-        if(i>sqrt(x))
-            break;
-        while(!(x%i))
-        {
-            x/=i;
-            pow*=i;
-        }
-        ret*=(pow-(pow/i));
-    }
-    if(x!=1)
-        ret*=(x-1);
-    return ret;
-}
 int main()
 {
-    ll n;
+    string a;
+    int hi=1000000,lo=1;
+    fflush(stdout);
     while(1)
     {
-        sl(n);
-        if(n==0)
+        int mid=(hi+lo)/2;
+        cout<<mid<<endl;
+        fflush(stdout);
+        cin>>a;
+        if(a=="Bingo!")
             return 0;
-        pf("%lld\n",phi(n));
+        else if(a=="Bigger")
+            lo=mid+1;
+        else
+            hi=mid-1;
     }
 }

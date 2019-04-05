@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 
 #define FAST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
@@ -31,33 +32,10 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-ll phi(ll x)
-{
-    ll ret=1,i,pow;
-    for(i=2;x!=1;i++)
-    {
-        pow=1;
-        if(i>sqrt(x))
-            break;
-        while(!(x%i))
-        {
-            x/=i;
-            pow*=i;
-        }
-        ret*=(pow-(pow/i));
-    }
-    if(x!=1)
-        ret*=(x-1);
-    return ret;
-}
 int main()
 {
-    ll n;
-    while(1)
-    {
-        sl(n);
-        if(n==0)
-            return 0;
-        pf("%lld\n",phi(n));
-    }
+    int n,m;
+    sff(n,m);
+    int r=n-(m%n);
+    pf("%d",r%n);
 }

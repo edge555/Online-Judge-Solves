@@ -31,33 +31,29 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-ll phi(ll x)
-{
-    ll ret=1,i,pow;
-    for(i=2;x!=1;i++)
-    {
-        pow=1;
-        if(i>sqrt(x))
-            break;
-        while(!(x%i))
-        {
-            x/=i;
-            pow*=i;
-        }
-        ret*=(pow-(pow/i));
-    }
-    if(x!=1)
-        ret*=(x-1);
-    return ret;
-}
+
 int main()
 {
-    ll n;
-    while(1)
+    int t,tc;
+    sf(tc);
+    rep(t,tc)
     {
-        sl(n);
-        if(n==0)
-            return 0;
-        pf("%lld\n",phi(n));
+        int i,j,n,m,k;
+        sff(n,m);
+        vector<int>vec;
+        rep0(i,n)
+        {
+            sf(k);
+            vec.pb(k);
+        }
+        int mx,ans=INT_MIN;
+        rep0(i,m)
+        {
+            mx=0;
+            for(j=i;j<n;j+=m)
+                mx=max(mx,0)+vec[j];
+            ans=max(ans,mx);
+        }
+        pf("%d\n",ans);
     }
 }

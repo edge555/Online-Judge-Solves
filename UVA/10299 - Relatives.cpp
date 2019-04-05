@@ -58,6 +58,11 @@ int main()
         sl(n);
         if(n==0)
             return 0;
+        if(n==1)
+        {
+            puts("0");
+            continue;
+        }
         pf("%lld\n",phi(n));
     }
 }
