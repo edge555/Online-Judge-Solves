@@ -30,7 +30,6 @@ int main()
             int a,b;
             a=x+dxh[i];
             b=y+dyh[i];
-            //debug2(a,b);
             if(a>=0 && a<8 && b>=0 && b<8)
                 cnt++;
         }
