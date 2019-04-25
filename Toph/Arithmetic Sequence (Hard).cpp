@@ -20,7 +20,6 @@ int main()
     {
         sf(a);
         sum-=a;
-
     }
     pf("%lld\n",sum);
 }
