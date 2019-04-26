@@ -29,9 +29,7 @@ int main()
             a.pb(s[i]);
         else
             b.pb(s[i]);
-
     }
-
     int cnt=0;
     queue<string>qq;
     for (i=0;i<a.size();i++)
