@@ -39,7 +39,6 @@ int main()
         int i,j;
         rep0(i,8)
             cin>>a[i];
-
         string b="",c="";
         int x=-1,y=-1,xx=-1,yy=-1;
         rep0(i,7)
@@ -80,7 +79,6 @@ int main()
             p+=weight[b[i]-'A'];
         rep0(i,c.size())
             q+=weight[c[i]-'A'];
-
         if(p==q)
         {
             if(x==xx)
@@ -93,7 +91,6 @@ int main()
                     ans+='.';
                 ans+="\\||/";
                 ans+=c;
-
                 int dot=6-c.size();
                 while(dot--)
                     ans+='.';
@@ -151,5 +148,4 @@ int main()
             }
         }
     }
-    //cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 }
