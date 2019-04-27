@@ -77,7 +77,6 @@ int main()
                 {
                     reps(jj,j,j+m2-1)
                     {
-
                         if(ara[ii][jj]==ara2[k][l])
                             cnt++;
                         l++;
