@@ -52,7 +52,6 @@ int main()
             j=i+1;
             while(1)
             {
-
                 if(j>=n)
                 {
                     j--;
