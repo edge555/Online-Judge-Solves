@@ -1,0 +1,18 @@
+n=int(input())
+m=int(input())
+if(n>m):
+    n,m=m,n
+cnt=0
+tr1=tr2=1
+while(True):
+    if(n==m):
+        break
+    if(tr1>tr2):
+        m-=1
+        cnt+=tr2
+        tr2+=1
+    else:
+        n+=1
+        cnt+=tr1
+        tr1+=1
+print(cnt)
