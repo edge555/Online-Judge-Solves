@@ -18,13 +18,13 @@ bool chk(string a,string b)
     int i,j,k;
     string s;
     bool ok=false;
-    for (i=0;i<=b.size()-a.size();i++)
+    for(i=0;i<=b.size()-a.size();i++)
     {
         s=b.substr(i,a.size());
         if(s==a)
         {
-          return true;
-          break;
+            return true;
+            break;
         }
     }
     return false;
@@ -36,18 +36,17 @@ int main()
     cin>>n;
     vector<string>vec;
     vector<string>::iterator it;
-    while (n--)
+    while(n--)
     {
         cin>>a;
         vec.push_back(a);
     }
     sort(vec.begin(),vec.end(),func);
-    for (i=0;i<vec.size()-1;i++)
+    for(i=0;i<vec.size()-1;i++)
     {
-       if((chk(vec[i],vec[i+1]))==true)
-        cnt++;
+        if((chk(vec[i],vec[i+1]))==true)
+            cnt++;
     }
-  
     if(cnt==vec.size()-1)
     {
         cout<<"YES"<<endl;
