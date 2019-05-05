@@ -39,7 +39,6 @@ int main()
             cnt+=p-now;
         else
             cnt+=(n+p)-now;
-
         now=p;
         q.pop();
     }
