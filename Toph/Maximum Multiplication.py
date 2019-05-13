@@ -3,14 +3,14 @@ mx=max(a,b)
 mn=min(a,b)
 diff=mx-mn
 if(c>=diff):
-    mn=mx;
+    mn=mx
     c-=diff
 else:
-    mn+=c;
+    mn+=c
     c=0
-r=(int)(c/2);
-mx+=r;
-mn+=r;
+r=(int)(c/2)
+mx+=r
+mn+=r
 c-=r*2
 if(c):
     mx+=1
