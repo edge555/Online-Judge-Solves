@@ -80,7 +80,8 @@ int main()
                 }
                 for (i=0;i<9;i++)
                 {
-                    if((ara[i]-ara[i+1]==0 && ara[i]!=-1) && first==true){
+                    if((ara[i]-ara[i+1]==0 && ara[i]!=-1) && first==true)
+                    {
                         ara[i]=-1;
                         ara[i+1]=-1;
                         break;
