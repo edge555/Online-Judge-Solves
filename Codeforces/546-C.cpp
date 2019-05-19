@@ -49,7 +49,6 @@ int main()
         int a,b;
         a=dq.front();
         b=dqq.front();
-
         dq.pop_front();
         dqq.pop_front();
         if(a>b)
