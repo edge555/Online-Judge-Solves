@@ -1,72 +1,93 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+
+#define FAST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define pf printf
+#define sc scanf
+#define sf(num) scanf("%d",&num)
+#define sff(num1,num2) scanf("%d %d",&num1,&num2)
+#define sfff(num1,num2,num3) scanf("%d %d %d",&num1,&num2,&num3);
+#define sl(num) scanf("%lld",&num)
+#define sll(num1,num2) scanf("%lld %lld",&num1,&num2)
+#define slll(num1,num2,num3) scanf("%lld %lld %lld",&num1,&num2,&num3);
+#define rep(i,n) for(i=1;i<=n;i++)
+#define rep0(i,n) for(i=0;i<n;i++)
+#define reps(i,a,n) for(i=a;i<=n;i++)
+#define pb push_back
+#define mpp make_pair
+#define MOD 1000000007
+#define fi first
+#define se second
+#define N 2005
+#define mem(ara,n) memset(ara,n,sizeof(ara))
+#define memb(ara) memset(ara,false,sizeof(ara))
+#define all(x) (x).begin(),(x).end()
+#define sq(x) ((x)*(x))
+#define pi pair<int,int>
+#define pii pair<pair<int,int>,pair<int,int> >
+#define db(x) cout<<#x<<" :: "<<x<<"\n";
+#define dbb(x,y) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<"\n";
+#define fr freopen("input.txt","r",stdin);
+#define fw freopen("output.txt","w",stdout);
+#define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
+typedef long long int ll;
 using namespace std;
-
-int A[2005][2005];
-int hist(int hist[],int k)
+int ara[N],prevv[N];
+int histogram(int n)
 {
-	stack<int>s;
-	int top,maxa=0,ta=0,i=0;
-	while(i<k)
-	{
-		if(s.empty() || hist[s.top()]<=hist[i])
-			s.push(i++);
-		else
-		{
-			top=hist[s.top()];
-			s.pop();
-			ta=top*i;
-			if(!s.empty())
-				ta=top*(i-s.top()-1);
-			maxa=max(ta,maxa);
-		}
-	}
-	while (!s.empty())
-	{
-		top=hist[s.top()];
-		s.pop();
-		ta=top*i;
-		if(!s.empty())
-			ta=top*(i-s.top()-1);
-		maxa=max(ta,maxa);
-	}
-	return maxa;
-}
-
-int maxRectangle(int R,int C)
-{
-    int i,j;
-	int res = hist(A[0],C);
-	for (i=1;i<R;i++)
-	{
-		for (j=0;j<C;j++)
+    int area=0,maxarea=0;
+    stack<int>s;
+    int i,topp;
+    for(i=1;i<=n;)
+    {
+        if(s.empty() || ara[s.top()]<=ara[i])
+            s.push(i++);
+        else
         {
-            if(A[i][j]!=0)
-                    A[i][j]+= A[i-1][j];
-            res=max(res,hist(A[i],C));
-		}
-	}
-	return res;
+            topp=s.top();
+            s.pop();
+            if(s.empty())
+                area=ara[topp]*(i-1);
+            else
+                area=ara[topp]*(i-s.top()-1);
+            maxarea=max(maxarea,area);
+        }
+    }
+    while(s.empty())
+    {
+        topp=s.top();
+        s.pop();
+        if(s.empty())
+            area=ara[topp]*(i-1);
+        else
+            area=ara[topp]*(i-s.top()-1);
+        maxarea=max(maxarea,area);
+    }
+    return maxarea;
 }
 int main()
 {
-    int n,k;
-    cin>>n;
-    for (k=1;k<=n;k++)
+    int t,tc;
+    sf(tc);
+    rep(t,tc)
     {
-        int r,c,i,j,t;
-        string a="";
-        cin>>r>>c;
+        int i,j,n,m;
+        sff(n,m);
         getchar();
-        for (i=0;i<r;i++)
-    	{
-            getline(cin,a);
-            for (j=0;j<a.size();j++)
+        mem(ara,0);
+        int ans=0;
+        string a;
+        rep0(i,n)
+        {
+            cin>>a;
+            rep0(j,m)
             {
-                t=a[j]-'0';
-                A[i][j]=(t==0)?1:0;
+                if(a[j]=='0')
+                    ara[j+1]++;
+                else
+                    ara[j+1]=0;
             }
-    	}
-        cout<<"Case "<<k<<": "<<maxRectangle(r,c)<<endl;
+            ans=max(ans,histogram(m));
+        }
+        pf("Case %d: %d\n",t,ans);
     }
-	return 0;
 }
