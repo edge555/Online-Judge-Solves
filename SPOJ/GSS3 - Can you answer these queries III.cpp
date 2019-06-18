@@ -94,7 +94,6 @@ void update(ll node,ll st,ll en,ll i,ll val)
 {
     seg cur;
     cur.init(-1e18);
-
     if(st==en)
     {
         seg cur;
