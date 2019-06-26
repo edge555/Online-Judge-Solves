@@ -31,85 +31,92 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-struct node
+const int MAX=100000000;
+const int LMT=10000;
+int flag[MAX>>6];
+int ara[N],tree[4*N];
+#define chkbit(x) (flag[x>>6]&(1<<((x>>1)&31)))
+#define setbit(x) (flag[x>>6]|=(1<<((x>>1)&31)))
+void sieve()
 {
-    ll sum,prop;
-}tree[4*N];
-void update(ll cur,ll st,ll en,ll l,ll r,ll val)
-{
-    if(tree[cur].prop)
+    long long int i,j,k;
+    for(i=3;i<LMT;i+=2)
     {
-        tree[cur].sum+=(en-st+1)*tree[cur].prop;
-        if(st!=en)
+        if(!chkbit(i))
         {
-            tree[2*cur].prop+=tree[cur].prop;
-            tree[2*cur+1].prop+=tree[cur].prop;
+            for(j=i*i,k=i<<1;j<MAX;j+=k)
+                setbit(j);
         }
-        tree[cur].prop=0;
     }
+}
+bool prime(int n)
+{
+    return (n&1 && n!=1 && !chkbit(n)) || n==2;
+}
+void build(int cur,int st,int en)
+{
+    if(st>en)
+        return;
+    if(st==en)
+    {
+        if(prime(ara[st]))
+            tree[cur]=1;
+        else
+            tree[cur]=0;
+        return;
+    }
+    int mid=(st+en)>>1;
+    int left=cur<<1,right=left+1;
+    build(left,st,mid);
+    build(right,mid+1,en);
+    tree[cur]=tree[left]+tree[right];
+}
+void update(int cur,int st,int en,int l,int r,int val)
+{
     if(st>en || st>r || en<l)
         return;
     if(st>=l && en<=r)
     {
-        tree[cur].sum+=(en-st+1)*val;
-        if(st!=en)
-        {
-            tree[2*cur].prop+=val;
-            tree[2*cur+1].prop+=val;
-        }
+        if(prime(val))
+            tree[cur]=1;
+        else
+            tree[cur]=0;
         return;
     }
-    ll mid=(st+en)/2;
-    ll left=2*cur,right=left+1;
+    int mid=(st+en)>>1;
+    int left=cur<<1,right=left+1;
     update(left,st,mid,l,r,val);
     update(right,mid+1,en,l,r,val);
-    tree[cur].sum=tree[left].sum+tree[right].sum;
+    tree[cur]=tree[left]+tree[right];
 }
-ll query(ll cur,ll st,ll en,ll l,ll r)
+int query(int cur,int st,int en,int l,int r)
 {
     if(st>en || st>r || en<l)
         return 0;
-    if(tree[cur].prop!=0)
-    {
-        tree[cur].sum+=(en-st+1)*tree[cur].prop;
-        if(st!=en)
-        {
-            tree[2*cur].prop+=tree[cur].prop;
-            tree[2*cur+1].prop+=tree[cur].prop;
-        }
-        tree[cur].prop=0;
-    }
     if(st>=l && en<=r)
-        return tree[cur].sum;
-    ll mid=(st+en)/2;
-    ll left=2*cur,right=left+1;
-    ll ans1=query(left,st,mid,l,r);
-    ll ans2=query(right,mid+1,en,l,r);
-    return ans1+ans2;
+        return tree[cur];
+    int mid=(st+en)>>1;
+    int left=cur<<1,right=left+1;
+    int x=query(left,st,mid,l,r);
+    int y=query(right,mid+1,en,l,r);
+    return x+y;
 }
 int main()
 {
-    ll t,tc;
-    sl(tc);
-    rep(t,tc)
+    sieve();
+    int i,n;
+    sf(n);
+    rep(i,n)
+        sf(ara[i]);
+    build(1,1,n);
+    int q,a,b,c;
+    sf(q);
+    while(q--)
     {
-        ll i,n,q;
-        sll(n,q);
-        mem(tree,0);
-        ll a,b,c,v;
-        while(q--)
-        {
-            sl(c);
-            if(c)
-            {
-                sll(a,b);
-                pf("%lld\n",query(1,1,n,a,b));
-            }
-            else
-            {
-                slll(a,b,v);
-                update(1,1,n,a,b,v);
-            }
-        }
+        sfff(c,a,b);
+        if(c&1)
+            pf("%d\n",query(1,1,n,a,b));
+        else
+            update(1,1,n,a,a,b);
     }
 }

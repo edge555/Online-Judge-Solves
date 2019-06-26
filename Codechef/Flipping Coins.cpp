@@ -33,83 +33,54 @@ typedef long long int ll;
 using namespace std;
 struct node
 {
-    ll sum,prop;
+    int sum,prop;
 }tree[4*N];
-void update(ll cur,ll st,ll en,ll l,ll r,ll val)
+void update(int cur,int st,int en,int l,int r)
 {
-    if(tree[cur].prop)
-    {
-        tree[cur].sum+=(en-st+1)*tree[cur].prop;
-        if(st!=en)
-        {
-            tree[2*cur].prop+=tree[cur].prop;
-            tree[2*cur+1].prop+=tree[cur].prop;
-        }
-        tree[cur].prop=0;
-    }
     if(st>en || st>r || en<l)
         return;
     if(st>=l && en<=r)
     {
-        tree[cur].sum+=(en-st+1)*val;
-        if(st!=en)
-        {
-            tree[2*cur].prop+=val;
-            tree[2*cur+1].prop+=val;
-        }
+        tree[cur].sum=(en-st+1)-tree[cur].sum;
+        tree[cur].prop++;
         return;
     }
-    ll mid=(st+en)/2;
-    ll left=2*cur,right=left+1;
-    update(left,st,mid,l,r,val);
-    update(right,mid+1,en,l,r,val);
+    int mid=(st+en)/2;
+    int left=2*cur,right=left+1;
+    update(left,st,mid,l,r);
+    update(right,mid+1,en,l,r);
     tree[cur].sum=tree[left].sum+tree[right].sum;
+    if(tree[cur].prop&1)
+        tree[cur].sum=(en-st+1)-tree[cur].sum;
 }
-ll query(ll cur,ll st,ll en,ll l,ll r)
+int query(int cur,int st,int en,int l,int r,int carry)
 {
     if(st>en || st>r || en<l)
         return 0;
-    if(tree[cur].prop!=0)
-    {
-        tree[cur].sum+=(en-st+1)*tree[cur].prop;
-        if(st!=en)
-        {
-            tree[2*cur].prop+=tree[cur].prop;
-            tree[2*cur+1].prop+=tree[cur].prop;
-        }
-        tree[cur].prop=0;
-    }
     if(st>=l && en<=r)
-        return tree[cur].sum;
-    ll mid=(st+en)/2;
-    ll left=2*cur,right=left+1;
-    ll ans1=query(left,st,mid,l,r);
-    ll ans2=query(right,mid+1,en,l,r);
+    {
+        if(carry&1)
+            return en-st+1-tree[cur].sum;
+        else
+            return tree[cur].sum;
+    }
+    int mid=(st+en)/2;
+    int left=2*cur,right=left+1;
+    int ans1=query(left,st,mid,l,r,carry+tree[cur].prop);
+    int ans2=query(right,mid+1,en,l,r,carry+tree[cur].prop);
     return ans1+ans2;
 }
 int main()
 {
-    ll t,tc;
-    sl(tc);
-    rep(t,tc)
+    int i,n,q;
+    sff(n,q);
+    int a,b,c,v;
+    while(q--)
     {
-        ll i,n,q;
-        sll(n,q);
-        mem(tree,0);
-        ll a,b,c,v;
-        while(q--)
-        {
-            sl(c);
-            if(c)
-            {
-                sll(a,b);
-                pf("%lld\n",query(1,1,n,a,b));
-            }
-            else
-            {
-                slll(a,b,v);
-                update(1,1,n,a,b,v);
-            }
-        }
+        sfff(c,a,b);
+        if(c)
+            pf("%d\n",query(1,1,n,a+1,b+1,0));
+        else
+            update(1,1,n,a+1,b+1);
     }
 }
