@@ -37,7 +37,6 @@ unordered_map<ll,int>pos,rpos;
 int ind[N];
 int main()
 {
-
     mp[1]=true;
     int i;
     ll p;
@@ -53,10 +52,8 @@ int main()
     sf(n);
     queue<int>one;
     vector<int>vec;
-    //mem(ind,-1);
     rep0(i,n)
     {
-
         sf(k);
         ind[k]=i+1;
         if(k==1)
