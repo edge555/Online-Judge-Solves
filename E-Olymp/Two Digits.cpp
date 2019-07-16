@@ -31,56 +31,16 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-ll dis(ll x2,ll x1,ll y2,ll y1)
-{
-    ll a=x2-x1;
-    ll b=y2-y1;
-    return (a*a)+(b*b);
-}
-struct node
-{
-    ll x,y,dis,ind;
-}ara[N];
-bool comp(node &a,node &b)
-{
-    if(a.dis==b.dis)
-    {
-        if(a.x==b.x && a.y==b.y)
-            return a.ind>b.ind;
-        return a.ind<b.ind;
-    }
-    return a.dis<b.dis;
-}
 int main()
 {
-    int t,tc;
-    sf(tc);
-    rep(t,tc)
-    {
-        ll x,y;
-        sll(x,y);
-        ll i,n,k,a,b;
-        sll(n,k);
-        rep0(i,n)
-        {
-            sll(a,b);
-            ara[i]={a,b,dis(a,x,b,y),i+1};
-        }
-        sort(ara,ara+n,comp);
-        ll ans=-1,cnt=0,prev=-1;
-        rep0(i,n)
-        {
-            if(ara[i].dis!=prev)
-            {
-                prev=ara[i].dis;
-                cnt++;
-                if(k==cnt)
-                {
-                    ans=ara[i].ind;
-                    break;
-                }
-            }
-        }
-        pf("Case %d: %lld\n",t,ans);
-    }
+    vector<ll>vec;
+    vec.pb(2);
+    vec.pb(4);
+    vec.pb(6);
+    int i;
+    for(i=3;i<=31;i++)
+        vec.pb(vec[i-1]+vec[i-2]);
+    int n;
+    sf(n);
+    pf("%lld",vec[n-1]);
 }
