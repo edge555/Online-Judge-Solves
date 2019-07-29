@@ -6,14 +6,15 @@ int main()
     cin>>t;
     for (j=1;j<=t;j++)
     {
-    cin>>n;
-    for (i=1;sum<=n-1;i+=9)
-    {
-        sum+=i;
-        cnt++;
-    }
-    printf ("Case #%lld: %lld\n",j,cnt);
-    cnt=0;
-    sum=0;
+        cin>>n;
+        for (i=1;sum<=n-1;i+=9)
+        {
+            sum+=i;
+            cnt++;
+        }
+        printf ("Case #%lld: %lld\n",j,cnt);
+        cnt=0;
+        sum=0;
     }
     return 0;
+}
