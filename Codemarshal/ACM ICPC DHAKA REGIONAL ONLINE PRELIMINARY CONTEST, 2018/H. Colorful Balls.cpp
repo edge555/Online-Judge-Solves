@@ -54,7 +54,6 @@ ll func(int i,int j)
         }
         else if(j==1)
         {
-
             ans=func(i+1,0);
             ans2=func(i+1,2);
         }
