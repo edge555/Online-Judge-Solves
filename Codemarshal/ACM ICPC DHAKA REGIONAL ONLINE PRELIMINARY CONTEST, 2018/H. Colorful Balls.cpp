@@ -82,7 +82,6 @@ int main()
     cin>>tc;
     rep(t,tc)
     {
-
         cin>>a;
         mem(dp,-1);
         cout<<"Case "<<t<<": ";
