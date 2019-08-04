@@ -35,66 +35,66 @@ int ara[N][N];
 unordered_set<int>st;
 int main()
 {
-	int t,tc;
-	sf(tc);
-	rep(t,tc)
+    int t,tc;
+    sf(tc);
+    rep(t,tc)
 	{
-		int i,j,n;
-		sf(n);
-		rep0(i,n)
-		{
-			rep0(j,n)
-				sf(ara[i][j]);
-		}
-		pf("Case %d: ",t);
-		int k,l,cnt=0;
-		for(i=0;i<n-1;i++)
-		{
-			for(j=0;j<=n-5;j++)
-			{
-				st.clear();
-				for(k=j;k<j+5;k++)
-				{
-					st.insert(ara[i][k]);
-					st.insert(ara[i+1][k]);
-				}
-				if(st.size()==10)
-					cnt++;
-			}
-		}
-		for(i=0;i<=n-5;i++)
-		{
-			for(j=0;j<n-1;j++)
-			{
-				st.clear();
-				for(k=i;k<i+5;k++)
-				{
-					st.insert(ara[k][j]);
-					st.insert(ara[k][j+1]);
-				}
-				if(st.size()==10)
-					cnt++;
-			}
-		}
-		if(n==10)
-		{
-			for(i=0;i<n;i++)
-			{
-				st.clear();
-				for(j=0;j<n;j++)
-					st.insert(ara[i][j]);
-				if(st.size()==10)
-					cnt++;
-			}
-			for(j=0;j<n;j++)
-			{
-				st.clear();
-				for(i=0;i<n;i++)
-					st.insert(ara[i][j]);
-				if(st.size()==10)
-					cnt++;
-			}
-		}
-		pf("%d\n",cnt);
-	}
+        int i,j,n;  
+        sf(n);
+        rep0(i,n)
+        {
+            rep0(j,n)
+            sf(ara[i][j]);
+        }
+        pf("Case %d: ",t);
+        int k,l,cnt=0;
+        for(i=0;i<n-1;i++)
+        {
+            for(j=0;j<=n-5;j++)
+            {
+                st.clear();
+                for(k=j;k<j+5;k++)
+                {
+                    st.insert(ara[i][k]);
+                    st.insert(ara[i+1][k]);
+                }
+                if(st.size()==10)
+                    cnt++;
+            }
+        }
+        for(i=0;i<=n-5;i++)
+        {
+            for(j=0;j<n-1;j++)
+            {
+                st.clear();
+                for(k=i;k<i+5;k++)
+                {
+                    st.insert(ara[k][j]);
+                    st.insert(ara[k][j+1]);
+                }
+                if(st.size()==10)
+                    cnt++;
+            }
+        }
+        if(n==10)
+        {
+            for(i=0;i<n;i++)
+            {
+                st.clear();
+                for(j=0;j<n;j++)
+                    st.insert(ara[i][j]);
+                if(st.size()==10)
+                    cnt++;
+            }
+            for(j=0;j<n;j++)
+            {
+                st.clear();
+                for(i=0;i<n;i++)
+                    st.insert(ara[i][j]);
+                if(st.size()==10)
+                    cnt++;
+            }
+        }
+        pf("%d\n",cnt);
+    }
 }
