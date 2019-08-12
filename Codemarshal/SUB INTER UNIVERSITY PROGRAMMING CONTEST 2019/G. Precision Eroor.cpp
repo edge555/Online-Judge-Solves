@@ -62,7 +62,6 @@ int main()
             if(!chk)
                 cnt2++;
         }
-        //dbb(cnt1,cnt2);
         pf("Case %d: ",t);
         if(cnt1!=cnt2)
         {
@@ -75,7 +74,6 @@ int main()
         while(d.size()!=mx)
             d+="0";
         chk=true;
-        //dbb(c,d);
         rep0(i,min(k,mx))
         {
             if(c[i]!=d[i])
