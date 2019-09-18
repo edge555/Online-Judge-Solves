@@ -5,10 +5,10 @@
 #define sc scanf
 #define sf(num) scanf("%d",&num)
 #define sff(num1,num2) scanf("%d %d",&num1,&num2)
-#define sfff(num1,num2,num3) scanf("%d %d %d",&num1,&num2,&num3);
+#define sfff(num1,num2,num3) scanf("%d %d %d",&num1,&num2,&num3)
 #define sl(num) scanf("%lld",&num)
 #define sll(num1,num2) scanf("%lld %lld",&num1,&num2)
-#define slll(num1,num2,num3) scanf("%lld %lld %lld",&num1,&num2,&num3);
+#define slll(num1,num2,num3) scanf("%lld %lld %lld",&num1,&num2,&num3)
 #define rep(i,n) for(i=1;i<=n;i++)
 #define rep0(i,n) for(i=0;i<n;i++)
 #define reps(i,a,n) for(i=a;i<=n;i++)
@@ -31,16 +31,34 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
 int main()
 {
-    FAST;
     int t,tc;
-    cin>>tc;
+    sf(tc);
     rep(t,tc)
     {
-        string a;
-        cin>>a;
-        reverse(all(a));
-        cout<<a<<endl;
+        int i,n,k;
+        sf(n);
+        vector<ll>vec;
+        sf(k);
+        ll l=k;
+        vec.pb(k);
+        rep0(i,n-1)
+        {
+            sf(k);
+            vec.pb(k);
+            l=lcm(l,k);
+        }
+        pf("Case %d: ",t);
+        ll top=n*l;
+        ll bottom=0;
+        rep0(i,n)
+            bottom+=ll(l/vec[i]);
+        ll g=__gcd(top,bottom);
+        pf("%lld/%lld\n",top/g,bottom/g);
     }
 }
