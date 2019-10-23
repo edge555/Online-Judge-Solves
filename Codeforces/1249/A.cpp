@@ -5,10 +5,10 @@
 #define sc scanf
 #define sf(num) scanf("%d",&num)
 #define sff(num1,num2) scanf("%d %d",&num1,&num2)
-#define sfff(num1,num2,num3) scanf("%d %d %d",&num1,&num2,&num3);
+#define sfff(num1,num2,num3) scanf("%d %d %d",&num1,&num2,&num3)
 #define sl(num) scanf("%lld",&num)
 #define sll(num1,num2) scanf("%lld %lld",&num1,&num2)
-#define slll(num1,num2,num3) scanf("%lld %lld %lld",&num1,&num2,&num3);
+#define slll(num1,num2,num3) scanf("%lld %lld %lld",&num1,&num2,&num3)
 #define rep(i,n) for(i=1;i<=n;i++)
 #define rep0(i,n) for(i=0;i<n;i++)
 #define reps(i,a,n) for(i=a;i<=n;i++)
@@ -33,12 +33,28 @@ typedef long long int ll;
 using namespace std;
 int main()
 {
-    int n,i;
-    sf(n);
-    for(i=min(0,n);i<=max(0,n);i++)
+    int t,tc;
+    sf(tc);
+    rep(t,tc)
     {
-        pf("%d",i);
-        if(i!=max(0,n))
-            pf(" ");
+        int i,n,k;
+        sf(n);
+        vector<int>vec;
+        rep0(i,n)
+        {
+            sf(k);
+            vec.pb(k);
+        }
+        sort(all(vec));
+        int cnt=1;
+        rep0(i,n-1)
+        {
+            if(vec[i]+1==vec[i+1])
+            {
+                cnt++;
+                break;
+            }
+        }
+        pf("%d\n",cnt);
     }
 }
