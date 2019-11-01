@@ -32,48 +32,35 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-bool change[N];
+unordered_map<int,bool>mp;
 int main()
 {
-    int i,n,k,sum=0;
-    vector<int>vec;
-    sf(n);
-    rep0(i,n)
+    int t,tc;
+    sf(tc);
+    rep(t,tc)
     {
-        sf(k);
-        sum+=k/2;
-        vec.pb(k);
-    }
-    i=0;
-    while(sum!=0)
-    {
-        if(vec[i]&1)
+        mp.clear();
+        int i,n,k,r;
+        vector<int>vec;
+        sff(n,r);
+        rep0(i,n)
         {
-            if(sum>0)
-            {
-                if(vec[i]<0)
-                {
-                    vec[i]=(vec[i]-1)>>1;
-                    sum--;
-                    change[i]=true;
-                }
-            }
-            else
-            {
-                if(vec[i]>0)
-                {
-                    vec[i]=(vec[i]+1)>>1;
-                    sum++;
-                    change[i]=true;
-                }
-            }
+            sf(k);
+            if(!mp[k])
+                vec.pb(k);
+            mp[k]=true;
         }
-        i++;
+        sort(all(vec),greater<>());
+        int cnt=0,damage=0;
+        rep0(i,vec.size())
+        {
+            //dbb(vec[i],damage);
+            if(vec[i]-damage<=0)
+                break;
+            damage+=r;
+            cnt++;
+        }
+        pf("%d\n",cnt);
     }
-    rep0(i,n)
-    {
-        if(!change[i])
-            vec[i]/=2;
-        pf("%d\n",vec[i]);
-    }
+
 }

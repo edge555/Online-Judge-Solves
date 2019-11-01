@@ -32,48 +32,54 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-bool change[N];
 int main()
 {
-    int i,n,k,sum=0;
-    vector<int>vec;
-    sf(n);
-    rep0(i,n)
+    int t,tc;
+    sf(tc);
+    rep(t,tc)
     {
-        sf(k);
-        sum+=k/2;
-        vec.pb(k);
-    }
-    i=0;
-    while(sum!=0)
-    {
-        if(vec[i]&1)
+        int n,h,i,k,j;
+        sff(n,h);
+        multiset<int>ms;
+        multiset<int>::iterator it;
+        rep0(i,n)
         {
-            if(sum>0)
-            {
-                if(vec[i]<0)
-                {
-                    vec[i]=(vec[i]-1)>>1;
-                    sum--;
-                    change[i]=true;
-                }
-            }
-            else
-            {
-                if(vec[i]>0)
-                {
-                    vec[i]=(vec[i]+1)>>1;
-                    sum++;
-                    change[i]=true;
-                }
-            }
+            sf(k);
+            ms.insert(k);
         }
-        i++;
-    }
-    rep0(i,n)
-    {
-        if(!change[i])
-            vec[i]/=2;
-        pf("%d\n",vec[i]);
+        bool chk=true;
+        while(ms.size()>=h)
+        {
+            it=ms.begin();
+            int prev=*it;
+            ms.erase(it);
+            rep0(j,h-1)
+            {
+                it=ms.upper_bound(prev);
+                if(it==ms.end())
+                {
+                    chk=false;
+                    break;
+                }
+                else
+                {
+                    if(*it-1==prev)
+                    {
+                        prev=*it;
+                        ms.erase(it);
+                    }
+                    else
+                    {
+                        chk=false;
+                        break;
+                    }
+                }
+            }
+            if(!chk)
+                break;
+        }
+        if(!ms.empty())
+            chk=false;
+        puts(chk?"True":"False");
     }
 }
