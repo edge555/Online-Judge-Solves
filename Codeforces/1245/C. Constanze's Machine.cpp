@@ -35,13 +35,12 @@ using namespace std;
 map<ll,ll>F;
 ll f(ll n)
 {
-	if(F.count(n))
+    if(F.count(n))
         return F[n];
-	ll k=n/2;
-	if (n%2==0)
-		return F[n]=(f(k)*f(k) + f(k-1)*f(k-1))%MOD;
+    ll k=n/2;
+    if (n%2==0)
+	return F[n]=(f(k)*f(k) + f(k-1)*f(k-1))%MOD;
     return F[n]=(f(k)*f(k+1) + f(k-1)*f(k))%MOD;
-
 }
 int main()
 {
@@ -104,7 +103,6 @@ int main()
         }
         else if(a[i]=='m' || a[i]=='w')
             vec.pb(0);
-
     }
     ll ans=1;
     rep0(i,vec.size())
@@ -116,7 +114,6 @@ int main()
         }
         if(vec[i]!=1)
         {
-
             ll p=f(vec[i]);
             ans=((ans%MOD)*(p%MOD))%MOD;
         }
