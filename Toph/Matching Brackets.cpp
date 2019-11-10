@@ -17,7 +17,7 @@
 #define MOD 1000000007
 #define fi first
 #define se second
-#define N 1005
+#define N 100005
 #define mem(ara,n) memset(ara,n,sizeof(ara))
 #define memb(ara) memset(ara,false,sizeof(ara))
 #define all(x) (x).begin(),(x).end()
@@ -32,59 +32,51 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-vector<int>grid[N];
-bool vis[N];
-int n,m,dp[N][2];
-void reset()
+bool check(string a)
 {
+    stack<char>s;
+    char x;
     int i;
-    rep(i,n)
+    rep0(i,sz(a))
     {
-        vis[i]=false;
-        grid[i].clear();
-    }
-    mem(dp,0);
-    memb(vis);
-}
-void solve(int u,int p=-1)
-{
-    dp[u][1]=1;
-    vis[u]=1;
-    int i;
-    rep0(i,sz(grid[u]))
-    {
-        int v=grid[u][i];
-        if(v!=p)
+        if(a[i]=='(' || a[i]=='[' || a[i]=='{')
         {
-            solve(v,u);
-            dp[u][1]+=dp[v][0];
-            dp[u][0]+=max(dp[v][1],dp[v][0]);
+            s.push(a[i]);
+            continue;
+        }
+        if(s.empty())
+           return false;
+
+        switch (a[i])
+        {
+            case ')':
+                x=s.top();
+                s.pop();
+                if(x=='{' || x=='[')
+                    return false;
+                break;
+            case '}':
+                x=s.top();
+                s.pop();
+                if(x=='(' || x=='[')
+                    return false;
+                break;
+            case ']':
+                x=s.top();
+                s.pop();
+                if(x =='(' || x == '{')
+                    return false;
+                break;
         }
     }
+    return s.empty();
 }
 int main()
 {
-    int t,tc;
-    sf(tc);
-    rep(t,tc)
-    {
-        sff(n,m);
-        reset();
-        int i,u,v;
-        rep0(i,m)
-        {
-            sff(u,v);
-            grid[u].pb(v);
-            grid[v].pb(u);
-        }
-        int ans=0;
-        rep(i,n)
-        {
-            if(vis[i])
-                continue;
-            solve(i);
-            ans+=max(dp[i][0],dp[i][1]);
-        }
-        pf("Case %d: %d\n",t,ans);
-    }
+    string a;
+    cin>>a;
+    if(check(a))
+        cout<<"Yes";
+    else
+        cout<<"No";
 }
