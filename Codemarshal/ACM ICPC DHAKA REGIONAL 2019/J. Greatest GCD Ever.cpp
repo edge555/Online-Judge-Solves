@@ -34,16 +34,9 @@ typedef long long int ll;
 using namespace std;
 int main()
 {
-    map<pi,int>mp;
-    int i,n,a,b;
-    sf(n);
-    rep0(i,n)
-    {
-        sff(a,b);
-        mp[{a,b}]++;
-    }
-    int mx=0;
-    for(auto it=mp.begin();it!=mp.end();it++)
-        mx=max(mx,it->se);
-    pf("%d",mx);
+    int a,n,i,mx=-1;
+    sff(a,n);
+    rep0(i,n+1)
+        mx=max(mx,__gcd(a,i));
+    cout<<mx<<endl;
 }

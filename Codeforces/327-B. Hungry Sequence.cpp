@@ -17,7 +17,7 @@
 #define MOD 1000000007
 #define fi first
 #define se second
-#define N 100005
+#define N 10000005
 #define mem(ara,n) memset(ara,n,sizeof(ara))
 #define memb(ara) memset(ara,false,sizeof(ara))
 #define all(x) (x).begin(),(x).end()
@@ -32,18 +32,36 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
+bool mark[N];
+void sieve()
+{
+    int i,j;
+    memset(mark,true,sizeof(mark));
+    for(i=4;i<N;i+=2)
+        mark[i]=false;
+    for(i=3;i*i<N;i++)
+    {
+        if(mark[i])
+        {
+            for(j=i*i;j<N;j+=i*2)
+                mark[j]=false;
+        }
+    }
+    mark[1]=false;
+}
 int main()
 {
-    map<pi,int>mp;
-    int i,n,a,b;
+    sieve();
+    int i,n;
     sf(n);
-    rep0(i,n)
+    pf("2");
+    n--;
+    for(i=3;i<=N && n;i+=2)
     {
-        sff(a,b);
-        mp[{a,b}]++;
+        if(mark[i])
+        {
+            pf(" %d",i);
+            n--;
+        }
     }
-    int mx=0;
-    for(auto it=mp.begin();it!=mp.end();it++)
-        mx=max(mx,it->se);
-    pf("%d",mx);
 }
