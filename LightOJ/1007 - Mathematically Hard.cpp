@@ -25,24 +25,27 @@ void seivePhi()
         phi[i]=i;
 
     for(i=2;i<=N;i++)
+    {
         if(!mark[i])
+	{
             for(j=i;j<=N;j+=i)
             {
                 mark[j]=1;
                 phi[j]=phi[j]/i*(i-1);
             }
+	}
+    }
     for(i=3;i<N;i++)
     {
         phi[i]*=phi[i];
         phi[i]+=phi[i-1];
     }
-
 }
 int main()
 {
     seivePhi();
     int tc,i;
-    ull ans, a, b;
+    ull ans,a,b;
     sf(tc);
     for(i=1;i<=tc;i++)
     {
