@@ -54,5 +54,4 @@ int main()
         else
             puts("regularly fancy");
     }
-    //cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 }
