@@ -23,7 +23,7 @@
 #define all(x) (x).begin(),(x).end()
 #define sq(x) ((x)*(x))
 #define sz(x) x.size()
-#define pi pair<int,int>
+#define pi pair<string,int>
 #define pii pair<pair<int,int>,pair<int,int> >
 #define line puts("-------");
 #define db(x) cout<<#x<<" :: "<<x<<"\n";
@@ -32,33 +32,48 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-bool comp(string &a,string &b)
+inline bool ischar(char c)
 {
-    string N1=a+b;
-    string N2=b+a;
-    return N1>N2;
+    return c>='A' && c<='Z';
 }
 int main()
 {
     FAST;
     int t,tc;
     cin>>tc;
+    cin.ignore();
     rep(t,tc)
     {
-
-        int i,n;
-        vector<string>vec;
-        string a;
-        cin>>n;
-        rep0(i,n)
+        string a,b;
+        int i,j,n;
+        cin>>a;
+        queue<pi>q;
+        rep0(i,a.size())
         {
-            cin>>a;
-            vec.pb(a);
+            b.clear();
+            n=0;
+            while(ischar(a[i]))
+            {
+                b+=a[i];
+                i++;
+            }
+            while(!ischar(a[i]) && i<a.size())
+            {
+                n*=10;
+                n+=a[i]-'0';
+                i++;
+            }
+            i--;
+            q.push({b,n});
         }
-        sort(all(vec),comp);
         cout<<"Case "<<t<<": ";
-        rep0(i,n)
-            cout<<vec[i];
+        while(!q.empty())
+        {
+            pi p=q.front();
+            q.pop();
+            while(p.se--)
+                cout<<p.fi;
+        }
         cout<<endl;
     }
 }

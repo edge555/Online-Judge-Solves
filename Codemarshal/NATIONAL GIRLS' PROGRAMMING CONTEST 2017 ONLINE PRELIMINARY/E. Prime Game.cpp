@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 
 #define FAST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
@@ -45,6 +44,5 @@ int main()
             ans^=1;
         pf("Case %d: ",t++);
         puts(ans&1?"Odd.":"Even.");
-
     }
 }
