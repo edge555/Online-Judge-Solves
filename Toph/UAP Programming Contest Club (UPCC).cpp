@@ -31,7 +31,6 @@ int main()
             else if(a[i]=='C')
                 c++;
         }
-        //cout<<u<<" "<<p<<" "<<c<<endl;
         while(u-1>=0 && p-1>=0 && c-2>=0)
         {
             cnt++;

@@ -47,5 +47,4 @@ int main()
         k++;
     }
     conv(k);
-    //cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 }
