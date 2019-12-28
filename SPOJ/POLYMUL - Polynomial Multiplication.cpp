@@ -31,10 +31,6 @@
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
 typedef long long int ll;
 using namespace std;
-bool comp(pii a,pii b)
-{
-    return a.se>b.se;
-}
 int main()
 {
     int t,tc;
