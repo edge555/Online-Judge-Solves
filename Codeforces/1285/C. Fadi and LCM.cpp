@@ -32,43 +32,39 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-unordered_map<int,bool>mp;
-int log2(int n)
+ll lcm(ll a,ll b)
 {
-    int now=1,cnt=0;
-    while(now*2<=n)
-    {
-        now*=2;
-        cnt++;
-    }
-    return cnt;
+    return (a/__gcd(a,b))*b;
 }
 int main()
 {
-    int t,tc;
-    sf(tc);
-    rep(t,tc)
+    ll i,j,n,k;
+    sl(n);
+    vector<ll>vec;
+    for(i=1;i*i<=n;i++)
     {
-        int a,b;
-        sff(a,b);
-        if(a>b)
-            swap(a,b);
-        int x=log2(a),y=log2(b);
-        int ans=x+y;
-        mp.clear();
-        while(a)
+        if(n%i==0)
         {
-            mp[a]=true;
-            a/=2;
+            vec.pb(i);
+            ll p=n/i;
+            if(p!=i)
+                vec.pb(p);
         }
-        while(b)
-        {
-            if(mp[b])
-                break;
-            b/=2;
-        }
-        ans-=2*log2(b);
-        pf("%d\n",ans);
-
     }
+    sort(all(vec));
+    ll mn=1e18,x,y;
+    rep0(i,sz(vec))
+    {
+        ll cur=vec[i];
+        ll need=n/vec[i];
+        if(lcm(cur,need)==n)
+        {
+            if(max(cur,need)<mn)
+            {
+                mn=max(cur,need);
+                x=cur,y=need;
+            }
+        }
+    }
+    pf("%lld %lld",x,y);
 }

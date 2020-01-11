@@ -32,43 +32,23 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-unordered_map<int,bool>mp;
-int log2(int n)
-{
-    int now=1,cnt=0;
-    while(now*2<=n)
-    {
-        now*=2;
-        cnt++;
-    }
-    return cnt;
-}
 int main()
 {
-    int t,tc;
-    sf(tc);
-    rep(t,tc)
+    int i,n,k;
+    sf(n);
+    unordered_map<int,int>mp;
+    rep0(i,n)
     {
-        int a,b;
-        sff(a,b);
-        if(a>b)
-            swap(a,b);
-        int x=log2(a),y=log2(b);
-        int ans=x+y;
-        mp.clear();
-        while(a)
-        {
-            mp[a]=true;
-            a/=2;
-        }
-        while(b)
-        {
-            if(mp[b])
-                break;
-            b/=2;
-        }
-        ans-=2*log2(b);
-        pf("%d\n",ans);
-
+        sf(k);
+        mp[k]++;
     }
+    for(auto it=mp.begin();it!=mp.end();it++)
+    {
+        if(it->se&1)
+        {
+            puts("Conan");
+            return 0;
+        }
+    }
+    puts("Agasa");
 }

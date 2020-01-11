@@ -32,16 +32,18 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-unordered_map<int,bool>mp;
-int log2(int n)
+ll calc(int arr[],int n)
 {
-    int now=1,cnt=0;
-    while(now*2<=n)
+    ll i,maxend=0,maxfar=-1e18;
+    for(i=1;i<n;i++)
     {
-        now*=2;
-        cnt++;
+        maxend=maxend+arr[i];
+        if(maxfar<maxend)
+            maxfar=maxend;
+        if(maxend<0)
+            maxend=0;
     }
-    return cnt;
+    return maxfar;
 }
 int main()
 {
@@ -49,26 +51,20 @@ int main()
     sf(tc);
     rep(t,tc)
     {
-        int a,b;
-        sff(a,b);
-        if(a>b)
-            swap(a,b);
-        int x=log2(a),y=log2(b);
-        int ans=x+y;
-        mp.clear();
-        while(a)
+        int i,n;
+        sf(n);
+        int ara[n+1];
+        ll mx=0,mx2=-1e18,mx3=-1e18;
+        rep0(i,n)
         {
-            mp[a]=true;
-            a/=2;
+            sf(ara[i]);
+            mx+=ara[i];
         }
-        while(b)
-        {
-            if(mp[b])
-                break;
-            b/=2;
-        }
-        ans-=2*log2(b);
-        pf("%d\n",ans);
-
+        mx2=calc(ara,n);
+        //db(mx2);
+        mx3=mx2+ara[0]-ara[n-1];
+        //dbb(mx2,mx3);
+        mx2=max(mx2,mx3);
+        puts(mx>mx2?"YES":"NO");
     }
 }
