@@ -34,30 +34,24 @@ typedef long long int ll;
 using namespace std;
 int main()
 {
-    int t,tc;
-    sf(tc);
-    rep(t,tc)
+    int i,n,k,a,b,x=0,y=0;
+    sf(n);
+    string s="";
+    rep0(i,n)
     {
-        int i,n,k;
-        sf(n);
-        vector<int>vec;
-        ll l=0,r=0;
-        rep0(i,n)
+        sff(a,b);
+        int aa=abs(x+a-y);
+        int bb=abs(y+b-x);
+        if(aa<=bb)
         {
-            sf(k);
-            vec.pb(k);
+            x+=a;
+            s+="A";
         }
-        bool chk=true;
-        rep0(i,n)
+        else
         {
-            l+=vec[i];
-            r+=vec[n-i-1];
-            if(l<=0 || r<=0)
-            {
-                chk=false;
-                break;
-            }
+            y+=b;
+            s+="G";
         }
-        puts(chk?"YES":"NO");
     }
+    cout<<s;
 }

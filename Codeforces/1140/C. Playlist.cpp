@@ -32,32 +32,38 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
+bool comp(pi a,pi b)
+{
+    return a.se>b.se;
+}
 int main()
 {
-    int t,tc;
-    sf(tc);
-    rep(t,tc)
+    int i,n,k,p,a,b;
+    vector<pi>vec;
+    sff(n,k);
+    rep0(i,n)
     {
-        int i,n,k;
-        sf(n);
-        vector<int>vec;
-        ll l=0,r=0;
-        rep0(i,n)
-        {
-            sf(k);
-            vec.pb(k);
-        }
-        bool chk=true;
-        rep0(i,n)
-        {
-            l+=vec[i];
-            r+=vec[n-i-1];
-            if(l<=0 || r<=0)
-            {
-                chk=false;
-                break;
-            }
-        }
-        puts(chk?"YES":"NO");
+        sff(a,b);
+        vec.pb({a,b});
     }
+    sort(all(vec),comp);
+    priority_queue<ll,vector<ll>,greater<ll> >pq;
+    ll sum=0,ans=-1;
+    rep0(i,n)
+    {
+        if(sz(pq)<k)
+        {
+            sum+=vec[i].fi;
+            pq.push(vec[i].fi);
+        }
+        else if(pq.top()<vec[i].fi)
+        {
+            sum-=pq.top();
+            pq.pop();
+            pq.push(vec[i].fi);
+            sum+=vec[i].fi;
+        }
+        ans=max(ans,ll(sum*vec[i].se));
+    }
+    pf("%lld",ans);
 }
