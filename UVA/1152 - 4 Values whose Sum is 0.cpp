@@ -38,29 +38,34 @@ int main()
     sf(tc);
     rep(t,tc)
     {
-        int n,i,k,ans=0,one=0,two=0;
-        sf(n);
+        ll i,j,n,k;
+        vector<ll>vec[4];
+        unordered_map<ll,ll>mp;
+        sl(n);
         rep0(i,n)
         {
-            sf(k);
-            if(k&1)
-                one++;
-            two+=k/2;
-        }
-        if(one>two)
-            ans=two;
-        else
-        {
-            ans=one;
-            two-=one;
-            while(two>2)
+            rep0(j,4)
             {
-                two-=3;
-                ans+=2;
+                sl(k);
+                vec[j].pb(k);
             }
-            if(two==2)
-                ans++;
         }
-        pf("%d\n",ans);
+        rep0(i,n)
+        {
+            rep0(j,n)
+                mp[vec[0][i]+vec[1][j]]++;
+        }
+        ll ans=0;
+        rep0(i,n)
+        {
+            rep0(j,n)
+            {
+                ll p=vec[2][i]+vec[3][j];
+                ans+=mp[-p];
+            }
+        }
+        pf("%lld\n",ans);
+        if(t!=tc)
+            nl
     }
 }

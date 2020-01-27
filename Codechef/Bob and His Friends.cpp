@@ -32,35 +32,24 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
+
 int main()
 {
     int t,tc;
     sf(tc);
     rep(t,tc)
     {
-        int n,i,k,ans=0,one=0,two=0;
-        sf(n);
+        ll n,a,b,c,k;
+        ll i,ans=1e18;
+        sl(n);
+        slll(a,b,c);
         rep0(i,n)
         {
-            sf(k);
-            if(k&1)
-                one++;
-            two+=k/2;
+            sl(k);
+            ll res=abs(k-b)+c+abs(k-a);
+            ans=min(ans,res);
+
         }
-        if(one>two)
-            ans=two;
-        else
-        {
-            ans=one;
-            two-=one;
-            while(two>2)
-            {
-                two-=3;
-                ans+=2;
-            }
-            if(two==2)
-                ans++;
-        }
-        pf("%d\n",ans);
+        pf("%lld\n",ans);
     }
 }

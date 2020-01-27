@@ -34,33 +34,33 @@ typedef long long int ll;
 using namespace std;
 int main()
 {
-    int t,tc;
-    sf(tc);
-    rep(t,tc)
+    ll i,j,n,k;
+    vector<ll>vec[6];
+    sl(n);
+    rep0(i,n)
     {
-        int n,i,k,ans=0,one=0,two=0;
-        sf(n);
-        rep0(i,n)
+        rep0(j,4)
         {
-            sf(k);
-            if(k&1)
-                one++;
-            two+=k/2;
+            sl(k);
+            vec[j].pb(k);
         }
-        if(one>two)
-            ans=two;
-        else
-        {
-            ans=one;
-            two-=one;
-            while(two>2)
-            {
-                two-=3;
-                ans+=2;
-            }
-            if(two==2)
-                ans++;
-        }
-        pf("%d\n",ans);
     }
+    rep0(i,n)
+    {
+        rep0(j,n)
+        {
+            vec[4].pb(vec[0][i]+vec[1][j]);
+            vec[5].pb(vec[2][i]+vec[3][j]);
+        }
+    }
+    sort(all(vec[4]));
+    pair<vector<ll>::iterator,vector<ll>::iterator>it;
+    ll ans=0;
+    rep0(i,sz(vec[5]))
+    {
+        ll p=-vec[5][i];
+        it=equal_range(all(vec[4]),p);
+        ans+=it.se-it.fi;
+    }
+    pf("%lld",ans);
 }
