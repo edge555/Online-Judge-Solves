@@ -32,32 +32,16 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-ll phi(ll n)
-{
-    ll i,ret=n;
-    for(i=2;i*i<=n;i++)
-    {
-        if(n%i==0)
-        {
-            while(n%i==0)
-                n/=i;
-            ret-=ret/i;
-        }
-    }
-    if(n>1)
-        ret-=ret/n;
-    return ret;
-}
-
 int main()
 {
-    int t,tc;
-    sf(tc);
-    rep(t,tc)
+    int i,n,k,p;
+    vector<int>vec;
+    sff(n,k);
+    rep0(i,n)
     {
-        ll a,m;
-        sll(a,m);
-        ll r=m/__gcd(a,m);
-        pf("%lld\n",phi(r));
+        sf(p);
+        vec.pb(p);
     }
+    sort(all(vec),greater<>());
+    pf("%d",vec[k-1]);
 }

@@ -32,32 +32,61 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-ll phi(ll n)
+vector<ll>vec,vec2,ans,ans2;
+void reset()
 {
-    ll i,ret=n;
-    for(i=2;i*i<=n;i++)
-    {
-        if(n%i==0)
-        {
-            while(n%i==0)
-                n/=i;
-            ret-=ret/i;
-        }
-    }
-    if(n>1)
-        ret-=ret/n;
-    return ret;
+    vec.clear();
+    vec2.clear();
+    ans.clear();
+    ans2.clear();
 }
-
+void func(ll ind,ll sum,ll  n)
+{
+    if(ind>=n)
+    {
+        ans.pb(sum);
+        return;
+    }
+    func(ind+1,sum+vec[ind],n);
+    func(ind+1,sum,n);
+}
+void func2(ll ind,ll sum,ll  n)
+{
+    if(ind>=n)
+    {
+        ans2.pb(sum);
+        return;
+    }
+    func2(ind+1,sum+vec2[ind],n);
+    func2(ind+1,sum,n);
+}
 int main()
 {
-    int t,tc;
-    sf(tc);
-    rep(t,tc)
+    ll n,w;
+    while(~sll(n,w))
     {
-        ll a,m;
-        sll(a,m);
-        ll r=m/__gcd(a,m);
-        pf("%lld\n",phi(r));
+        ll i,k;
+        reset();
+        rep0(i,n)
+        {
+            sl(k);
+            if(i<n/2)
+                vec.pb(k);
+             else
+                 vec2.pb(k);
+        }
+        func(0,0,vec.size());
+        func2(0,0,vec2.size());
+        ll cnt=0;
+        sort(all(ans2));
+        rep0(i,sz(ans))
+        {
+            ll r=upper_bound(all(ans2),w-ans[i])-ans2.begin();
+            ll l=lower_bound(all(ans2),w-ans[i])-ans2.begin();
+            cnt+=abs(r-l);
+        }
+        if(w==0)
+            cnt--;
+        pf("%lld\n",cnt);
     }
 }
