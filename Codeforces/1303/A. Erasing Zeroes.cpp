@@ -51,9 +51,7 @@ int main()
                 cnt=0;
             }
             else
-            {
                 cnt++;
-            }
         }
         pf("%d\n",ans);
     }
