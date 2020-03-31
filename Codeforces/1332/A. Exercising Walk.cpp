@@ -17,7 +17,7 @@
 #define MOD 1000000007
 #define fi first
 #define se second
-#define N 105
+#define N 100005
 #define mem(ara,n) memset(ara,n,sizeof(ara))
 #define memb(ara) memset(ara,false,sizeof(ara))
 #define all(x) (x).begin(),(x).end()
@@ -32,43 +32,31 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-string dp[N][N];
-void lexicographicalLCS(string A,string B)
-{
-    int i,j,m=A.size(),n=B.size();
-    for(i=0;i<=m;i++)
-    {
-        for(j=0;j<=n;j++)
-        {
-            if(i==0||j==0)
-                dp[i][j]="";
-            else if(A[i-1]==B[j-1])
-                dp[i][j]=dp[i-1][j-1]+A[i-1];
-            else if(dp[i-1][j].size()>dp[i][j-1].size())
-                dp[i][j]=dp[i-1][j];
-            else if(dp[i-1][j].size()<dp[i][j-1].size())
-                dp[i][j]=dp[i][j-1];
-            else if(dp[i-1][j]<dp[i][j-1])
-                dp[i][j]=dp[i-1][j];
-            else
-                dp[i][j]=dp[i][j-1];
-        }
-    }
-    if(dp[m][n].size()==0)
-        cout<<":("<<endl;
-    else
-        cout<<dp[m][n]<<endl;
-}
 int main()
 {
     int t,tc;
     cin>>tc;
-    cin.ignore();
     rep(t,tc)
     {
-        string a,b;
-        cin>>a>>b;
-        cout<<"Case "<<t<<": ";
-        lexicographicalLCS(a,b);
+        int a,b,c,d,x,y,x1,y1,x2,y2;
+        cin>>a>>b>>c>>d>>x>>y>>x1>>y1>>x2>>y2;
+        bool f=false;
+        if(x-x1<a-b)
+            f=true;
+        if(x2-x<b-a)
+            f=true;
+        if(y-y1<c-d)
+            f=true;
+        if(y2-y<d-c)
+            f=true;
+        if(a+b!=0 && x1==x2)
+            f=true;
+        if(c+d!=0 && y1==y2)
+            f=true;
+        if(f)
+            cout<<"NO";
+        else
+            cout<<"YES";
+        cout<<endl;
     }
 }

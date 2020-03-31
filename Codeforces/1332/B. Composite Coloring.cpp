@@ -17,7 +17,7 @@
 #define MOD 1000000007
 #define fi first
 #define se second
-#define N 105
+#define N 100005
 #define mem(ara,n) memset(ara,n,sizeof(ara))
 #define memb(ara) memset(ara,false,sizeof(ara))
 #define all(x) (x).begin(),(x).end()
@@ -32,43 +32,37 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-string dp[N][N];
-void lexicographicalLCS(string A,string B)
-{
-    int i,j,m=A.size(),n=B.size();
-    for(i=0;i<=m;i++)
-    {
-        for(j=0;j<=n;j++)
-        {
-            if(i==0||j==0)
-                dp[i][j]="";
-            else if(A[i-1]==B[j-1])
-                dp[i][j]=dp[i-1][j-1]+A[i-1];
-            else if(dp[i-1][j].size()>dp[i][j-1].size())
-                dp[i][j]=dp[i-1][j];
-            else if(dp[i-1][j].size()<dp[i][j-1].size())
-                dp[i][j]=dp[i][j-1];
-            else if(dp[i-1][j]<dp[i][j-1])
-                dp[i][j]=dp[i-1][j];
-            else
-                dp[i][j]=dp[i][j-1];
-        }
-    }
-    if(dp[m][n].size()==0)
-        cout<<":("<<endl;
-    else
-        cout<<dp[m][n]<<endl;
-}
 int main()
 {
     int t,tc;
-    cin>>tc;
-    cin.ignore();
+    sf(tc);
     rep(t,tc)
     {
-        string a,b;
-        cin>>a>>b;
-        cout<<"Case "<<t<<": ";
-        lexicographicalLCS(a,b);
+        int i,j,n,k;
+        string s;
+        cin>>n>>k>>s;
+        int ans=0;
+        for(i=0;i<(k+1)/2;i++)
+        {
+            unordered_map<char,int>mp;
+            int mx=0,cnt=0;
+            for(j=i;j<n;j+=k)
+            {
+                mp[s[j]]++;
+                cnt++;
+                mx=max(mx,mp[s[j]]);
+            }
+            if(i<k/2)
+            {
+                for(j=k-i-1;j<n;j+=k)
+                {
+                    mp[s[j]]++;
+                    cnt++;
+                    mx=max(mx,mp[s[j]]);
+                }
+            }
+            ans+=cnt-mx;
+        }
+        pf("%d\n",ans);
     }
 }
