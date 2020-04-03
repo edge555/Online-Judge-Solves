@@ -1,7 +1,7 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        int i,n=nums.size(),k,ans=-1;
+        int i,n=nums.size(),k;
         unordered_map<int,int>ara;
         for(i=0;i<n;i++)
             ara[nums[i]]++;
