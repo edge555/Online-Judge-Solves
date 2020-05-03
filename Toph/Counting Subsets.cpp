@@ -32,28 +32,28 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-int n,x,d;
-vector<int>vec;
+ll bigmod(ll a,ll p,ll m)
+{
+    ll res=1%m,x=a%m;
+    while(p)
+    {
+        if(p&1)
+            res=(res*x)%m;
+        x=(x*x)%m;
+        p>>=1;
+    }
+    return res;
+}
 int main()
 {
-    int i,j,k;
-    sfff(n,x,d);
-    rep0(i,n)
+    int t,tc;
+    sf(tc);
+    rep(t,tc)
     {
-        sf(k);
-        vec.pb(k);
-    }
-    rep(i,n)
-    {
-        rep0(j,i-1)
-            vec[j]-=d;
-        int sum=0;
-        rep0(j,i)
-            sum+=max(0,vec[j]);
-        if(sum>=x)
-        {
-            pf("%d",i);
-            return 0;
-        }
+        ll n,k;
+        sll(n,k);
+        ll ans=bigmod(k+1,n,MOD)-bigmod(k,n,MOD);
+        ans=(ans+MOD)%MOD;
+        pf("%lld\n",ans);
     }
 }

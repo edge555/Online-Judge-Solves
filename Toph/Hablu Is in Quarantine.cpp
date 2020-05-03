@@ -17,7 +17,7 @@
 #define MOD 1000000007
 #define fi first
 #define se second
-#define N 100005
+#define N 250005
 #define mem(ara,n) memset(ara,n,sizeof(ara))
 #define memb(ara) memset(ara,false,sizeof(ara))
 #define all(x) (x).begin(),(x).end()
@@ -32,28 +32,40 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-int n,x,d;
-vector<int>vec;
+string a[N];
+bool vis[N],corona[N];
 int main()
 {
-    int i,j,k;
-    sfff(n,x,d);
+    int i,j,n,k,now=1;
+    cin>>n;
     rep0(i,n)
     {
-        sf(k);
-        vec.pb(k);
-    }
-    rep(i,n)
-    {
-        rep0(j,i-1)
-            vec[j]-=d;
-        int sum=0;
-        rep0(j,i)
-            sum+=max(0,vec[j]);
-        if(sum>=x)
+        cin>>a[i];
+        rep0(j,n)
         {
-            pf("%d",i);
-            return 0;
+            if(a[i][j]=='c')
+                corona[now]=true;
+            now++;
         }
+    }
+    int p;
+    sf(p);
+    bool f=false;
+    vector<int>vec;
+    rep0(i,p)
+    {
+        sf(k);
+        if(corona[k] && !f)
+            f=true;
+        if(!corona[k] && f)
+            vec.pb(k);
+    }
+    if(!f)
+        pf("NO");
+    else
+    {
+        pf("YES\n");
+        rep0(i,vec.size())
+            pf("%d ",vec[i]);
     }
 }

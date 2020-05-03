@@ -32,28 +32,46 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-int n,x,d;
-vector<int>vec;
 int main()
 {
-    int i,j,k;
-    sfff(n,x,d);
-    rep0(i,n)
+    map<string,int>mp;
+    mp["January"]=0;
+    mp["February"]=31;
+    mp["March"]=59;
+    mp["April"]=90;
+    mp["May"]=120;
+    mp["June"]=151;
+    mp["July"]=181;
+    mp["August"]=212;
+    mp["September"]=243;
+    mp["October"]=273;
+    mp["November"]=304;
+    mp["December"]=334;
+    int t,tc;
+    sf(tc);
+    rep(t,tc)
     {
-        sf(k);
-        vec.pb(k);
-    }
-    rep(i,n)
-    {
-        rep0(j,i-1)
-            vec[j]-=d;
-        int sum=0;
-        rep0(j,i)
-            sum+=max(0,vec[j]);
-        if(sum>=x)
+        string s;
+        int i,d;
+        cin>>s>>d;
+        int day=mp[s]+d;
+        int se=1,ep=0;
+        rep(i,day)
         {
-            pf("%d",i);
-            return 0;
+            ep++;
+            if(ep==11 && se!=7)
+            {
+                se++;
+                ep=1;
+            }
+            else if(ep==8 && se==7)
+            {
+                se++;
+                ep=1;
+            }
+            if(se==8)
+                se=1;
         }
+        printf("S%02dE%02d\n",se,ep);
     }
 }

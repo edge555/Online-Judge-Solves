@@ -32,28 +32,12 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-int n,x,d;
-vector<int>vec;
 int main()
 {
-    int i,j,k;
-    sfff(n,x,d);
-    rep0(i,n)
-    {
-        sf(k);
-        vec.pb(k);
-    }
-    rep(i,n)
-    {
-        rep0(j,i-1)
-            vec[j]-=d;
-        int sum=0;
-        rep0(j,i)
-            sum+=max(0,vec[j]);
-        if(sum>=x)
-        {
-            pf("%d",i);
-            return 0;
-        }
-    }
+    string a;
+    cin>>a;
+    if(a=="ABC")
+        cout<<"ARC";
+    else
+        cout<<"ABC";
 }
