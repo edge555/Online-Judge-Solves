@@ -17,7 +17,7 @@
 #define MOD 1000000007
 #define fi first
 #define se second
-#define N 100
+#define N 100005
 #define mem(ara,n) memset(ara,n,sizeof(ara))
 #define memb(ara) memset(ara,false,sizeof(ara))
 #define all(x) (x).begin(),(x).end()
@@ -32,37 +32,32 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-int phi[N],prime[N];
+int phi[N];
 vector<int>vec[N];
-void sievephi()
+void genphi()
 {
     int i,j;
     rep(i,N-1)
         phi[i]=i;
-    phi[1]=1;
-    prime[1]=1;
-    for(i=2;i<N;i++)
+    rep(i,N-1)
     {
-        if(!prime[i])
-        {
-            for(j=i;j<N;j+=i)
-            {
-                prime[j+i]=1;
-                phi[j]=(phi[j]/i)*(i-1);
-            }
-        }
+        for(j=2*i;j<=N-1;j+=i)
+            phi[j]-=phi[i];
     }
 }
 int main()
 {
-    int i,mx=-1;
-    sievephi();
+    genphi();
+    int i;
     rep(i,N-1)
+        vec[phi[i]].pb(i);
+    int n,q,l,r,p;
+    sff(n,q);
+    while(q--)
     {
-        int r=phi[i];
-        dbb(i,r);
-        mx=max(mx,r);
-        vec[r].pb(i);
+        sfff(l,r,p);
+        int x=lower_bound(all(vec[p]),l)-vec[p].begin();
+        int y=upper_bound(all(vec[p]),r)-vec[p].begin();
+        pf("%d\n",y-x);
     }
-    db(mx);
 }

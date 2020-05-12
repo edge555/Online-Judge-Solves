@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
 
 #define FAST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define pf printf
@@ -34,30 +32,30 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-using namespace __gnu_pbds;
-typedef tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_update>ordered_set;
+ll dp[N];
+ll func(ll rem)
+{
+    if(rem==0)
+        return 1;
+    if(dp[rem]!=-1)
+        return dp[rem];
+    ll ans1=0,i;
+    for(i=1;i<=rem;i++)
+        ans1=max(ans1,func(rem-i)*i);
+    return dp[rem]=ans1;
+}
 int main()
 {
-    int i,n,k;
-    char ch;
-    sf(n);
-    ordered_set st;
-    rep0(i,n)
+    int t,tc;
+    sf(tc);
+    rep(t,tc)
     {
-        getchar();
-        sc("%c %d",&ch,&k);
-        if(ch=='I')
-            st.insert(k);
-        else if(ch=='D')
-            st.erase(k);
-        else if(ch=='K')
-        {
-            if(st.find_by_order(k-1)==st.end())
-                puts("invalid");
-            else
-                pf("%d\n",*st.find_by_order(k-1));
-        }
+        mem(dp,-1);
+        int i,n;
+        sf(n);
+        if(n<4)
+            pf("%d\n",n-1);
         else
-            pf("%d\n",st.order_of_key(k));
+            pf("%lld\n",func(n));
     }
 }
