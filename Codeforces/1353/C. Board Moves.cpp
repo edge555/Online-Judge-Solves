@@ -17,7 +17,7 @@
 #define MOD 1000000007
 #define fi first
 #define se second
-#define N 100005
+#define N 500005
 #define mem(ara,n) memset(ara,n,sizeof(ara))
 #define memb(ara) memset(ara,false,sizeof(ara))
 #define all(x) (x).begin(),(x).end()
@@ -32,43 +32,25 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-bool vis[N];
+ll ans[N];
 int main()
 {
+    int i;
+    ans[1]=0;
+    for(i=2;i<N;i++)
+    {
+        ll now=8*(i-1);
+        now*=(i-1);
+        ans[i]=ans[i-1]+now;
+    }
     int t,tc;
     sf(tc);
     rep(t,tc)
     {
-        int i,j,n,h,k,hg,ta,td;
-        sff(n,h);
-        sff(ta,td);
-        memb(vis);
-        vector<int>vec;
-        rep0(i,n)
-        {
-            sf(k);
-            vec.pb(k);
-        }
-        sort(all(vec));
-        j=n-1;
-        ll ans=0;
-        rep0(i,n)
-        {
-            if(vis[i])
-                continue;
-            while(vis[j] && i<j)
-                j--;
-            while(vec[i]+vec[j]>=h && i<j)
-                j--;
-            if(vec[i]+vec[j]<h && i<j && !vis[j] && 2*ta>td)
-            {
-                ans+=td;
-                vis[j]=true;
-            }
-            else
-                ans+=ta;
-            vis[i]=true;
-        }
-        pf("Case %d: %lld\n",t,ans);
+        int n;
+        sf(n);
+        n/=2;
+        n++;
+        pf("%lld\n",ans[n]);
     }
 }

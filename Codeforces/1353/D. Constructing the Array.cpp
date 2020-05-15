@@ -17,14 +17,15 @@
 #define MOD 1000000007
 #define fi first
 #define se second
-#define N 100005
+#define N 200005
+#define mp make_pair
 #define mem(ara,n) memset(ara,n,sizeof(ara))
 #define memb(ara) memset(ara,false,sizeof(ara))
 #define all(x) (x).begin(),(x).end()
 #define sq(x) ((x)*(x))
 #define sz(x) x.size()
 #define pi pair<int,int>
-#define pii pair<pair<int,int>,pair<int,int> >
+#define pii pair<int,pair<int,int> >
 #define line puts("-------");
 #define db(x) cout<<#x<<" :: "<<x<<"\n";
 #define dbb(x,y) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<"\n";
@@ -32,43 +33,53 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-bool vis[N];
+int ara[N];
+void func(int n)
+{
+    set<pii>st;
+    st.insert(mp(-n,mp(1,n)));
+    int now=1;
+    while(!st.empty())
+    {
+        pii cur=*st.begin();
+        int l=cur.se.fi,r=cur.se.se;
+        st.erase(cur);
+        if(l>r)
+            continue;
+        if(l==r)
+        {
+            ara[l]=now++;
+            continue;
+        }
+        int x=r-l+1;
+        if(x&1)
+        {
+            x=(l+r)/2;
+            ara[x]=now++;
+            st.insert(mp(-(x-l),mp(l,x-1)));
+            st.insert(mp(-(r-x),mp(x+1,r)));
+        }
+        else
+        {
+            x=(l+r-1)/2;
+            ara[x]=now++;
+            st.insert(mp(-(x-l),mp(l,x-1)));
+            st.insert(mp(-(r-x),mp(x+1,r)));
+        }
+    }
+    int i;
+    rep(i,n)
+        pf("%d ",ara[i]);
+    nl
+}
 int main()
 {
     int t,tc;
     sf(tc);
     rep(t,tc)
     {
-        int i,j,n,h,k,hg,ta,td;
-        sff(n,h);
-        sff(ta,td);
-        memb(vis);
-        vector<int>vec;
-        rep0(i,n)
-        {
-            sf(k);
-            vec.pb(k);
-        }
-        sort(all(vec));
-        j=n-1;
-        ll ans=0;
-        rep0(i,n)
-        {
-            if(vis[i])
-                continue;
-            while(vis[j] && i<j)
-                j--;
-            while(vec[i]+vec[j]>=h && i<j)
-                j--;
-            if(vec[i]+vec[j]<h && i<j && !vis[j] && 2*ta>td)
-            {
-                ans+=td;
-                vis[j]=true;
-            }
-            else
-                ans+=ta;
-            vis[i]=true;
-        }
-        pf("Case %d: %lld\n",t,ans);
+        int i,n,k;
+        sf(n);
+        func(n);
     }
 }

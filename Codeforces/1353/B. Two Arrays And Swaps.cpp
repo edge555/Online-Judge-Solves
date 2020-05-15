@@ -32,43 +32,34 @@
 #define fw freopen("output.txt","w",stdout);
 typedef long long int ll;
 using namespace std;
-bool vis[N];
 int main()
 {
     int t,tc;
     sf(tc);
     rep(t,tc)
     {
-        int i,j,n,h,k,hg,ta,td;
-        sff(n,h);
-        sff(ta,td);
-        memb(vis);
-        vector<int>vec;
+        int i,n,k,p;
+        vector<int>vec,vec2;
+        sff(n,k);
+        int sum=0;
         rep0(i,n)
         {
-            sf(k);
-            vec.pb(k);
+            sf(p);
+            vec.pb(p);
+            sum+=p;
+        }
+        rep0(i,n)
+        {
+            sf(p);
+            vec2.pb(p);
         }
         sort(all(vec));
-        j=n-1;
-        ll ans=0;
-        rep0(i,n)
+        sort(all(vec2),greater<>());
+        rep0(i,k)
         {
-            if(vis[i])
-                continue;
-            while(vis[j] && i<j)
-                j--;
-            while(vec[i]+vec[j]>=h && i<j)
-                j--;
-            if(vec[i]+vec[j]<h && i<j && !vis[j] && 2*ta>td)
-            {
-                ans+=td;
-                vis[j]=true;
-            }
-            else
-                ans+=ta;
-            vis[i]=true;
+            if(vec2[i]>vec[i])
+                sum+=vec2[i]-vec[i];
         }
-        pf("Case %d: %lld\n",t,ans);
+        pf("%d\n",sum);
     }
 }
