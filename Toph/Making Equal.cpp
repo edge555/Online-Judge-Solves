@@ -53,8 +53,8 @@ int main()
                 ch=it.fi;
             }
         }
-        cout<<n-mx<<endl;
-        for(i=0;i<a.size();i++)
+        cout<<a.size()-mx<<endl;
+        for(i=0;i<(int)a.size();i++)
             cout<<ch;
         cout<<endl;
     }
