@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+ 
 #define FAST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define pf printf
 #define sc scanf
@@ -29,21 +29,73 @@
 #define fr freopen("input.txt","r",stdin);
 #define fw freopen("output.txt","w",stdout);
 #define TIME cerr<<"Time : "<<(double)clock()/(double)CLOCKS_PER_SEC<<"s\n";
-typedef long long int ll;
+typedef long long ll;
 using namespace std;
-int main()
+struct node
 {
-    int tc;
-    sf(tc);
-    while(tc--)
+    int s,e,val,pos;
+    bool operator<(const node& n) const
     {
-        int i,n,k;
-        sf(n);
-        while(n--)
-        {
-            sf(k);
-            pf("%d ",k);
-        }
-        puts("");
+        if(e!=n.e)
+            return e<n.e;
+        return
+            val>n.val;
+    }
+    node(){};
+    node(int ss,int ee,int v,int p){
+        s=ss,e=ee,val=v,pos=p;
+    }
+};
+int occs[1000005],tree[30005],n,ans[200005];
+void update(int x,int val)
+{
+    while(x<=n)
+    {
+        tree[x]+=val;
+        x+=x&-x;
     }
 }
+ 
+int query(int x)
+{
+    int ret=0;
+    while(x>0)
+    {
+        ret+=tree[x];
+        x-=x&-x;
+    }
+    return ret;
+}
+int main()
+{
+    int q,s,e,i;
+    vector<node>vec;
+    sf(n);
+    rep(i,n)
+    {
+        sf(s);
+        vec.pb(node(i,i,s,-1));
+    }
+    sf(q);
+    rep0(i,q)
+    {
+        sff(s,e);
+        vec.pb(node(s,e,0,i));
+    }
+    sort(all(vec));
+    rep0(i,vec.size())
+    {
+        if(vec[i].val==0)
+            ans[vec[i].pos]=query(vec[i].e)-query(vec[i].s-1);
+        else
+        {
+            if(occs[vec[i].val]!=0)
+                update(occs[vec[i].val],-1);
+            update(vec[i].s,1);
+            occs[vec[i].val]=vec[i].s;
+        }
+    }
+    rep0(i,q)
+        pf("%d\n",ans[i]);
+}
+ 
