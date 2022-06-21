@@ -21,7 +21,6 @@ public:
     int countServers(vector<vector<int>>& grid) {
         memset(vis,false,sizeof(vis));
         memset(ara,-1,sizeof(ara));
-        queue<pair<int,int>>q;
         int color=0;
         n=grid.size();
         m=grid[0].size();
