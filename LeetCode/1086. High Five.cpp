@@ -11,10 +11,8 @@ public:
         vector<vector<int>>ans;
         for(auto v:mp){
             int sum=0;
-            //cout<<v.first<<endl;
             for(int i=0;i<5;i++){
                 sum+=v.second[i];
-                //cout<<v.second[i]<<endl;
             }
             ans.push_back({v.first,sum/5});
         }
