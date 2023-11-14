@@ -1,32 +1,21 @@
 class Solution {
 public:
     vector<int> partitionLabels(string s) {
-        unordered_map<char,int>mp;
+        unordered_map<char,int>lastind;
         for(int i=0;i<s.size();i++){
-            mp[s[i]]=i;
+            lastind[s[i]]=i;
         }
-        int i,mx=-1,cnt=0;
         vector<int>vec;
-        for(int i=0;i<s.size();i++){
-            if(mx==-1){
-                cnt=1;
-                mx=mp[s[i]];
-                if(mx==i){
-                    vec.push_back(cnt);
-                    cnt=0;
-                    mx=-1;
-                }
+        int cnt=1,curlast=lastind[s[0]];
+        for(int i=1;i<s.size();i++){
+            if(i<=curlast){
+                cnt++;
+                curlast=max(curlast,lastind[s[i]]);
             }
             else{
-                if(i==mx){
-                    vec.push_back(cnt+1);
-                    cnt=0;
-                    mx=-1;
-                }
-                else{
-                    mx=max(mx,mp[s[i]]);
-                    cnt++;
-                }
+                vec.push_back(cnt);
+                cnt=1;
+                curlast=lastind[s[i]];
             }
         }
         if(cnt){
