@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int sod(int n){
+    int digsum(int n){
         int sum=0;
         while(n>0){
             sum+=n%10;
@@ -9,30 +9,42 @@ public:
         return sum;
     }
     int maximumSum(vector<int>& nums) {
-        unordered_map<int,vector<int>>mp;
+        unordered_map<int,int>maxx,maxx2;
+        unordered_map<int,int>freq;
         for(auto x:nums){
-            mp[sod(x)].push_back(x);
-        }
-        int ans=-1;
-        for(auto it:mp){
-            if(it.second.size()==1){
+            int r=digsum(x);
+            freq[r]++;
+            if(!maxx.count(r)){
+                maxx[r]=x;
                 continue;
             }
-            int mx=it.second[0],mx2=-1;
-            for(int i=1;i<it.second.size();i++){
-                int x=it.second[i];
-                if(x>mx){
-                    mx2=mx;
-                    mx=x;
+
+            if(!maxx2.count(r)){
+                if(x>=maxx[r]){
+                    maxx2[r]=maxx[r];
+                    maxx[r]=x;
                 }
-                else if(x==mx){
-                    mx2=mx;
-                }
-                else if(x>mx2){
-                    mx2=x;
+                else{
+                    maxx2[r]=x;
                 }
             }
-            ans=max(ans,mx+mx2);
+            else{
+                if(x>=maxx[r]){
+                    maxx2[r]=maxx[r];
+                    maxx[r]=x;
+                }
+                else{
+                    maxx2[r]=max(maxx2[r],x);
+                }
+            }
+        }
+        int ans=-1;
+        for(auto it:freq){
+            if(it.second>1){
+                int a=maxx[it.first];
+                int b=maxx2[it.first];
+                ans=max(ans,a+b);
+            }
         }
         return ans;
     }
