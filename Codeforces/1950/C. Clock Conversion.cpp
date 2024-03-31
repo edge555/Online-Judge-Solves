@@ -81,7 +81,7 @@ int main()
         else if(a==12){
             s="PM";
         }
-        else if(a>13){
+        else if(a>=13){
             a-=12;
             s="PM";
         }

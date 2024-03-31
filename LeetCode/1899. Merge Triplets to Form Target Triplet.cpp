@@ -1,22 +1,14 @@
 class Solution {
 public:
     bool mergeTriplets(vector<vector<int>>& triplets, vector<int>& target) {
-        vector<vector<int>>vec;
+        int mx1=-1,mx2=-1,mx3=-1;
         for(auto v:triplets){
             if(v[0]<=target[0] && v[1]<=target[1] && v[2]<=target[2]){
-                vec.push_back(v);
+                mx1=max(mx1,v[0]);
+                mx2=max(mx2,v[1]);
+                mx3=max(mx3,v[2]);
             }
         }
-        sort(vec.begin(),vec.end());
-        vector<int>temp={-1,-1,-1};
-        for(auto v:vec){
-            temp[0]=max(temp[0],v[0]);
-            temp[1]=max(temp[1],v[1]);
-            temp[2]=max(temp[2],v[2]);
-            if(temp==target){
-                return true;
-            }
-        }
-        return false;
+        return mx1==target[0] && mx2==target[1] && mx3==target[2];
     }
 };
